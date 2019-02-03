@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h6e-Hp-WbF">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="ZD8-Yo-6dX">
+            <objects>
+                <viewController storyboardIdentifier="signUpViewController" id="h6e-Hp-WbF" customClass="SignUpViewController" customModule="ManagerExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xsR-Qf-umG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-Aw-gvm" customClass="PillButton" customModule="ManagerExample" customModuleProvider="target">
+                                <rect key="frame" x="47.666666666666657" y="610.33333333333337" width="280" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gyb-S2-mnp"/>
+                                    <constraint firstAttribute="width" priority="260" constant="280" id="Xs5-Zt-QW1"/>
+                                </constraints>
+                                <state key="normal" title="Sign Up"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiB-zO-H3z">
+                                <rect key="frame" x="74" y="718" width="227" height="30"/>
+                                <state key="normal" title="Already have an account? Sign In"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lorem-Ipsum-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ihH-xN-OTN">
+                                <rect key="frame" x="90.666666666666686" y="171.33333333333334" width="194" height="100.00000000000003"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OOh-bu-pjX">
+                                <rect key="frame" x="47.666666666666657" y="398.33333333333331" width="280" height="163.99999999999994"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y6x-Gv-wx5" customClass="PillTextField" customModule="ManagerExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="260" constant="280" id="BJF-yq-pRQ"/>
+                                            <constraint firstAttribute="height" constant="44" id="b8h-HK-ye4"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VoQ-gV-n0W" customClass="PillTextField" customModule="ManagerExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="280" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="260" constant="280" id="M2g-Kp-rnU"/>
+                                            <constraint firstAttribute="height" constant="44" id="sub-CU-G4J"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHf-Ih-6Zy" customClass="PillTextField" customModule="ManagerExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="120.00000000000006" width="280" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Apx-PC-aSj"/>
+                                            <constraint firstAttribute="width" priority="260" constant="280" id="cp5-zD-8lR"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJx-RT-UM1">
+                                <rect key="frame" x="167.66666666666666" y="271.33333333333331" width="40" height="127"/>
+                                <color key="backgroundColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="pMn-4j-PJP"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="69.333333333333314" translatesAutoresizingMaskIntoConstraints="NO" id="xuu-8i-Bcd">
+                                <rect key="frame" x="167.66666666666666" y="43.999999999999993" width="40" height="127.33333333333331"/>
+                                <color key="backgroundColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="iLq-gl-q4v"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="34.666666666666629" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-X2-l7i">
+                                <rect key="frame" x="167.66666666666666" y="654.33333333333337" width="40" height="63.666666666666629"/>
+                                <color key="backgroundColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="DoC-fk-rsr"/>
+                                    <constraint firstAttribute="width" constant="40" id="OWB-yk-CUh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jJx-RT-UM1" firstAttribute="top" secondItem="ihH-xN-OTN" secondAttribute="bottom" constant="-5.6843418860808015e-14" id="0E9-BR-gjM"/>
+                            <constraint firstItem="ihH-xN-OTN" firstAttribute="top" secondItem="xuu-8i-Bcd" secondAttribute="bottom" constant="5.6843418860808015e-14" id="6jB-PU-oTq"/>
+                            <constraint firstItem="8BW-Aw-gvm" firstAttribute="centerX" secondItem="xsR-Qf-umG" secondAttribute="centerX" id="6on-tv-NuJ"/>
+                            <constraint firstItem="jJx-RT-UM1" firstAttribute="height" secondItem="xuu-8i-Bcd" secondAttribute="height" id="BKE-gq-m5N"/>
+                            <constraint firstItem="IiB-zO-H3z" firstAttribute="centerX" secondItem="xsR-Qf-umG" secondAttribute="centerX" id="Klo-uT-6bM"/>
+                            <constraint firstItem="xuu-8i-Bcd" firstAttribute="top" secondItem="Q3Y-06-WiO" secondAttribute="top" id="Lhe-HE-Nms"/>
+                            <constraint firstItem="q4e-X2-l7i" firstAttribute="centerX" secondItem="xsR-Qf-umG" secondAttribute="centerX" id="OTF-uU-SwS"/>
+                            <constraint firstItem="OOh-bu-pjX" firstAttribute="top" secondItem="jJx-RT-UM1" secondAttribute="bottom" constant="-5.6843418860808015e-14" id="SfW-95-Fih"/>
+                            <constraint firstItem="OOh-bu-pjX" firstAttribute="centerX" secondItem="xsR-Qf-umG" secondAttribute="centerX" id="WdA-rv-laX"/>
+                            <constraint firstItem="IiB-zO-H3z" firstAttribute="top" secondItem="q4e-X2-l7i" secondAttribute="bottom" constant="-1.1368683772161603e-13" id="Xgw-rk-YyI"/>
+                            <constraint firstItem="jJx-RT-UM1" firstAttribute="height" secondItem="q4e-X2-l7i" secondAttribute="height" multiplier="2" id="Xnj-ES-1B4"/>
+                            <constraint firstItem="jJx-RT-UM1" firstAttribute="centerX" secondItem="xsR-Qf-umG" secondAttribute="centerX" id="bnh-5o-UVp"/>
+                            <constraint firstItem="ihH-xN-OTN" firstAttribute="centerX" secondItem="xsR-Qf-umG" secondAttribute="centerX" id="crD-zx-gCd"/>
+                            <constraint firstItem="xuu-8i-Bcd" firstAttribute="centerX" secondItem="xsR-Qf-umG" secondAttribute="centerX" id="grq-Hk-vCI"/>
+                            <constraint firstItem="8BW-Aw-gvm" firstAttribute="top" secondItem="OOh-bu-pjX" secondAttribute="bottom" constant="48.000000000000114" id="kaF-12-7hf"/>
+                            <constraint firstItem="Q3Y-06-WiO" firstAttribute="bottom" secondItem="IiB-zO-H3z" secondAttribute="bottom" constant="30" id="oCB-qb-91l"/>
+                            <constraint firstItem="q4e-X2-l7i" firstAttribute="top" secondItem="8BW-Aw-gvm" secondAttribute="bottom" constant="1.1368683772161603e-13" id="oiK-ca-jHS"/>
+                            <constraint firstItem="jJx-RT-UM1" firstAttribute="top" secondItem="ihH-xN-OTN" secondAttribute="bottom" constant="-5.6843418860808015e-14" id="tlv-NF-pv8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q3Y-06-WiO"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="xsR-Qf-umG" id="PTL-C2-Yal"/>
+                        <outlet property="emailTextField" destination="VoQ-gV-n0W" id="ASd-zO-cfh"/>
+                        <outlet property="logoImageView" destination="ihH-xN-OTN" id="mrc-Mu-wo8"/>
+                        <outlet property="nameTextField" destination="y6x-Gv-wx5" id="VeM-NE-baV"/>
+                        <outlet property="passwordTextField" destination="KHf-Ih-6Zy" id="dLU-lW-rNY"/>
+                        <outlet property="signInButton" destination="IiB-zO-H3z" id="mNI-Rq-c2M"/>
+                        <outlet property="signUpButton" destination="8BW-Aw-gvm" id="a9b-Ve-qv6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgg-jS-z1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864.79999999999995" y="133.74384236453201"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Lorem-Ipsum-Logo" width="194" height="100"/>
+    </resources>
+</document>
