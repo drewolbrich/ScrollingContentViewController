@@ -233,11 +233,13 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
 
         let contentViewSystemLayoutSize = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         let contentViewIntrinsicContentSize = contentView.intrinsicContentSize
-        if contentViewSystemLayoutSize.width <= 0 && contentViewIntrinsicContentSize.width == UIView.noIntrinsicMetric {
-            NSLog("Warning: The content view's width is undefined. You must have an unbroken chain of constraints and views stretching from the content view’s left edge to its right edge or the content view's intrinsic content size must be defined.")
-        }
-        if contentViewSystemLayoutSize.height <= 0 && contentViewIntrinsicContentSize.height == UIView.noIntrinsicMetric {
-            NSLog("Warning: The content view's height is undefined. You must have an unbroken chain of constraints and views stretching from the content view’s top edge to its bottom edge or the content view's intrinsic content size must be defined.")
+        let widthIsDefined = contentViewSystemLayoutSize.width > 0 || contentViewIntrinsicContentSize.width != UIView.noIntrinsicMetric
+        let heightIsDefined = contentViewSystemLayoutSize.height > 0 || contentViewIntrinsicContentSize.height != UIView.noIntrinsicMetric
+        // Warnings are reported only if both the width and height are undefined. When a
+        // layout is intended to scroll along only one axis, it is convenient to leave the
+        // size of the other axis undefined.
+        if !widthIsDefined && !heightIsDefined {
+            NSLog("Warning: The content view's size is undefined. You must have an unbroken chain of constraints and views stretching across at least one axis of the content view or the content view's intrinsic content size must be defined.")
         }
 
         if contentView.superview == nil {
