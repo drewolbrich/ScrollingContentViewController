@@ -49,7 +49,7 @@ public class ScrollingContentScrollView: UIScrollView {
         // controller, changes to the size of the content view will result in the content
         // view's safe area insets changing unpredictably. The always behavior is chosen
         // here instead of never because unlike never, the always behavior adjusts the
-        // scroll indicator insets, which is desirable, in particular on iPhone XS in
+        // scroll indicator insets, which is desirable, in particular on iPhone Xs in
         // landscape orientation with the keyboard presented.
         contentInsetAdjustmentBehavior = .always
     }

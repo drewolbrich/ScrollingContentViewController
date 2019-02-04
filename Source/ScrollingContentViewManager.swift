@@ -524,7 +524,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
                 //
                 // This approach is chosen instead of resizing the scroll view's content size,
                 // because doing so requires adjusting its scrollIndicatorInsets property to
-                // compensate, and on iPhone XS in landscape orientation, this has the unfortunate
+                // compensate, and on iPhone Xs in landscape orientation, this has the unfortunate
                 // side effect of awkwardly shifting the scroll indicator away from the edge of the
                 // screen.
                 //

@@ -27,7 +27,7 @@ ScrollingContentViewController makes it easy to create a view controller with a 
 
 A common UIKit Auto Layout task involves creating a view controller with a fixed layout that is too large to fit older, smaller devices, or devices in landscape orientation, or the area of the screen that remains visible when the keyboard is presented.
 
-For example, consider this sign up screen, which fits iPhone XS, but not iPhone SE with a keyboard:
+For example, consider this sign up screen, which fits iPhone Xs, but not iPhone SE with a keyboard:
 
 <img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Overview-Comparison.png" width="888px">
 
@@ -376,7 +376,7 @@ When the keyboard is presented, ScrollingContentViewController modifies the cont
 
 Although ScrollingContentViewController modifies [`additionalSafeAreaInsets`](https://developer.apple.com/documentation/uikit/uiviewcontroller/2902284-additionalsafeareainsets) when the keyboard is presented, it restores it to its original value when the keyboard is dismissed. This allows [`additionalSafeAreaInsets`](https://developer.apple.com/documentation/uikit/uiviewcontroller/2902284-additionalsafeareainsets) to be used for other purposes, such as custom tool palettes.
 
-During development, an alternate approach suggested by Apple, modifying the scroll view's content size, was also tried. This requires adjusting the scroll view's [`scrollIndicatorInsets`](https://developer.apple.com/documentation/uikit/uiscrollview/1619427-scrollindicatorinsets) property to compensate for the content size change. On iPhone XS in landscape orientation, doing so has the unfortunate side effect of awkwardly shifting the scroll indicator away from the edge of the screen.
+During development, an alternate approach suggested by Apple, modifying the scroll view's content size, was also tried. This requires adjusting the scroll view's [`scrollIndicatorInsets`](https://developer.apple.com/documentation/uikit/uiscrollview/1619427-scrollindicatorinsets) property to compensate for the content size change. On iPhone Xs in landscape orientation, doing so has the unfortunate side effect of awkwardly shifting the scroll indicator away from the edge of the screen.
 
 ### Keyboard Resize Filtering
 
