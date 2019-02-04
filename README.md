@@ -85,7 +85,7 @@ To configure `ScrollingContentViewController` in a storyboard:
 
 4. At runtime, the `ScrollingContentViewController` property [`contentView`](#contentView) will now reference the superview of the controls that you laid out in Interface Builder. This superview will no longer be referenced by the [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property, which will instead reference an empty root view behind the scrolling content view. If necessary, revise your code to reflect this change.
 
-Your content view will now scroll, provided that you ensure that the content view's Auto Layout constraints [sufficiently define its size](#auto-layout-considerations).
+Your content view will now scroll, provided that you ensure that the content view's Auto Layout constraints [sufficiently define its size](#auto-layout-considerations), and that this size is larger than the safe area.
 
 ### Code
 
