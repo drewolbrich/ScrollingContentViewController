@@ -47,6 +47,12 @@ To install ScrollingContentViewController using CocoaPods, add this line to your
 pod 'ScrollingContentViewController'
 ```
 
+To install ScrollingContentViewController using Carthage, add this line to your Cartfile:
+
+```
+github "drewolbrich/ScrollingContentViewController"
+```
+
 ## Usage
 
 Subclasses of `ScrollingContentViewController` may be configured using [storyboards](#storyboards) or in [code](#code). 
