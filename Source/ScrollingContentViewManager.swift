@@ -231,6 +231,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
             return
         }
 
+        #if DEBUG
         let contentViewSystemLayoutSize = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         let contentViewIntrinsicContentSize = contentView.intrinsicContentSize
         let widthIsDefined = contentViewSystemLayoutSize.width > 0 || contentViewIntrinsicContentSize.width != UIView.noIntrinsicMetric
@@ -241,6 +242,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         if !widthIsDefined && !heightIsDefined {
             NSLog("Warning: The content view's size is undefined. You must have an unbroken chain of constraints and views stretching across at least one axis of the content view or the content view's intrinsic content size must be defined.")
         }
+        #endif
 
         if contentView.superview == nil {
             addScrollViewToHostViewControllerRootView()
