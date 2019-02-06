@@ -239,6 +239,9 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         // Warnings are reported only if both the width and height are undefined. When a
         // layout is intended to scroll along only one axis, it is convenient to leave the
         // size of the other axis undefined.
+        // Note: If a root view has no constraints, systemLayoutSizeFitting will return the
+        // default size of the view, usually matching the size of the screen, so the
+        // warning will not be displayed displayed in that case.
         if !widthIsDefined && !heightIsDefined {
             NSLog("Warning: The content view's size is undefined. You must have an unbroken chain of constraints and views stretching across at least one axis of the content view or the content view's intrinsic content size must be defined.")
         }
