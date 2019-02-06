@@ -191,14 +191,21 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         }
 
         if hostViewController.view == contentView {
-            hostViewController.view = defaultRootView
+            hostViewController.view = substitutionRootView(for: contentView)
         }
     }
 
-    /// A root view that is substituted for the content view in the case that the
-    /// content view and the root view are the same.
-    private lazy var defaultRootView: UIView = {
+    /// Creates a root view that is substituted for the content view in the case that
+    /// the content view and the root view are the same.
+    ///
+    /// - Parameter contentView: The content view to base the root view on
+    /// - Returns: A root view
+    private func substitutionRootView(for contentView: UIView?) -> UIView {
         let rootView = UIView()
+
+        if let contentView = contentView {
+            rootView.frame = contentView.frame
+        }
 
         // By default, UIView.backgroundColor is nil, which in the general case would allow
         // black pixels to be seen behind the view, so here it is changed to white, which
@@ -206,7 +213,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         rootView.backgroundColor = .white
 
         return rootView
-    }()
+    }
 
     /// Adds an initial content view as a subview of the scroll view.
     ///
