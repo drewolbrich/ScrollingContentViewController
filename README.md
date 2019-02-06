@@ -223,9 +223,9 @@ class MyViewController: UIViewController {
         scrollingContentViewManager.viewWillTransition(to: size, with: coordinator)
     }
 
-    /// Note: This is only required in apps with navigation controllers that are used to
-    /// push sequences of view controllers with text fields that become the first
-    /// responder in `viewWillAppear`.
+    // Note: This is only required in apps with navigation controllers that are used to
+    // push sequences of view controllers with text fields that become the first
+    // responder in `viewWillAppear`.
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
 
@@ -268,9 +268,9 @@ class MyViewController: UIViewController {
         scrollingContentViewManager.viewWillTransition(to: size, with: coordinator)
     }
 
-    /// Note: This is only required in apps with navigation controllers that are used to
-    /// push sequences of view controllers with text fields that become the first
-    /// responder in `viewWillAppear`.
+    // Note: This is only required in apps with navigation controllers that are used to
+    // push sequences of view controllers with text fields that become the first
+    // responder in `viewWillAppear`.
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
 
