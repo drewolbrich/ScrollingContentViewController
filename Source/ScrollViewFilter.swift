@@ -241,7 +241,7 @@ internal class ScrollViewFilter {
             self.keyboardFrameEvent = nil
             keyboardDelegate?.scrollViewFilter(self, adjustViewForKeyboardFrameEvent: keyboardFrameEvent)
         }
-        
+
         if let scrollRectEvent = scrollRectEvent {
             // Note: It's possible that the call to adjustViewForKeyboardFrameEvent, above,
             // results in a new call to submitScrollRectEvent which will be immediately handled

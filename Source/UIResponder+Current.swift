@@ -15,7 +15,7 @@
 
 import UIKit
 
-private var foundFirstResponder: UIResponder? = nil
+private var foundFirstResponder: UIResponder?
 
 internal extension UIResponder {
 

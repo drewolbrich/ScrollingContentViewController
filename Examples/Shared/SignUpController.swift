@@ -84,11 +84,11 @@ class SignUpController: NSObject {
 
         let signInButtonTitleRegularFontAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: signInButtonTitleColor,
-            .font: UIFont.systemFont(ofSize: signInButtonTitleFontSize, weight: .regular),
+            .font: UIFont.systemFont(ofSize: signInButtonTitleFontSize, weight: .regular)
             ]
         let signInButtonTitleMediumFontAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: signInButtonTitleColor,
-            .font: UIFont.systemFont(ofSize: signInButtonTitleFontSize, weight: .medium),
+            .font: UIFont.systemFont(ofSize: signInButtonTitleFontSize, weight: .medium)
             ]
 
         signInButtonTitle.append(NSAttributedString(string: "Already have an account? ", attributes: signInButtonTitleRegularFontAttributes))

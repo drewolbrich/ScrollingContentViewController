@@ -1,0 +1,8 @@
+disabled_rules:
+  - line_length
+  - unused_closure_parameter
+  - identifier_name
+
+file_length:
+  warning: 850
+  error: 1200

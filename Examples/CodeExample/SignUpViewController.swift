@@ -83,6 +83,7 @@ class SignUpViewController: ScrollingContentViewController {
         configureTextField(passwordTextField, placeholder: "Password", textContentType: nil, autocapitalizationType: .none, keyboardType: .default, isSecureTextEntry: true)
     }
 
+    // swiftlint:disable:next function_parameter_count
     private func configureTextField(_ textField: UITextField, placeholder: String?, textContentType: UITextContentType?, autocapitalizationType: UITextAutocapitalizationType, keyboardType: UIKeyboardType, isSecureTextEntry: Bool) {
         textField.placeholder = placeholder
         textField.autocapitalizationType = autocapitalizationType
@@ -97,6 +98,7 @@ class SignUpViewController: ScrollingContentViewController {
         textField.isSecureTextEntry = isSecureTextEntry
     }
 
+    // swiftlint:disable:next function_body_length
     private func addConstraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -153,7 +155,7 @@ class SignUpViewController: ScrollingContentViewController {
 
             logoImageTopLayoutGuide.heightAnchor.constraint(equalTo: logoImageBottomLayoutGuide.heightAnchor),
             logoImageBottomLayoutGuide.heightAnchor.constraint(equalTo: signUpButtonBottomLayoutGuide.heightAnchor, multiplier: 2, constant: 0),
-            signUpButtonBottomLayoutGuide.heightAnchor.constraint(greaterThanOrEqualToConstant: 16),
+            signUpButtonBottomLayoutGuide.heightAnchor.constraint(greaterThanOrEqualToConstant: 16)
             ]
 
         logoImageView.setContentHuggingPriority(.required, for: .vertical)

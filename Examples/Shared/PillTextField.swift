@@ -56,7 +56,7 @@ class PillTextField: UITextField {
     private func updateAttributedPlaceholder() {
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: placeholderColor,
-            .font: UIFont.systemFont(ofSize: 17, weight: .medium),
+            .font: UIFont.systemFont(ofSize: 17, weight: .medium)
             ]
         if let placeholder = placeholder {
             attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)

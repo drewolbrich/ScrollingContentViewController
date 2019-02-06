@@ -35,7 +35,7 @@ class GradientBackgroundView: UIView {
 
         gradientLayer.colors = [
             UIColor(red: 37/255, green: 176/255, blue: 176/255, alpha: 1).cgColor,
-            UIColor(red: 72/255, green: 72/255, blue: 171/255, alpha: 1).cgColor,
+            UIColor(red: 72/255, green: 72/255, blue: 171/255, alpha: 1).cgColor
         ]
     }
 

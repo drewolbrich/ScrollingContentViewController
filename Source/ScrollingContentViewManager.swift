@@ -98,7 +98,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
     ///
     /// This property's access control level is `internal` so it can be accessed by unit
     /// tests.
-    internal(set) var keyboardObserver: KeyboardObserver?
+    internal var keyboardObserver: KeyboardObserver?
 
     /// An object that modifies the scroll view's `alwaysBounceVertical` property to
     /// reflect the state of the presented keyboard.
@@ -465,7 +465,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
             scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             contentViewMinimumWidthConstraint,
-            contentViewMinimumHeightConstraint,
+            contentViewMinimumHeightConstraint
             ]
 
         scrollView.addConstraints(constraints)

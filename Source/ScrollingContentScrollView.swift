@@ -156,10 +156,8 @@ extension ScrollingContentScrollView: ScrollViewFilterScrollDelegate {
         switch scrollRectEvent.contentArea {
         case .scrollViewRect(let rect):
             scrollViewRect = rect
-            break
         case .descendantViewRect(let rect, let descendantView):
             scrollViewRect = convert(rect, from: descendantView)
-            break
         }
 
         scrollViewRect = scrollViewRect.insetBy(dx: 0, dy: -scrollRectEvent.margin)
