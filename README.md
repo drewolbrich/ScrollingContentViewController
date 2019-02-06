@@ -13,7 +13,7 @@
 * [Caveats](#caveats)
 * [Usage Without Subclassing](#usage-without-subclassing)
 * [Examples](#examples)
-* [Properties](#properties)
+* [View Controller Properties](#view-controller-properties)
 * [Scroll View Properties and Methods](#scroll-view-properties-and-methods)
 * [How It Works](#how-it-works)
 * [Special Cases Handled](#special-cases-handled)
@@ -292,7 +292,7 @@ class MyViewController: UIViewController {
 
 * [ReassignExample](Examples/ReassignExample) - Example of dynamically reassigning `contentView`.
 
-## Properties
+## View Controller Properties
 
 The `ScrollingContentViewController` and `ScrollingContentViewManager` classes share the following properties:
 
