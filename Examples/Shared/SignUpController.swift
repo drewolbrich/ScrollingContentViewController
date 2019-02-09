@@ -44,6 +44,7 @@ class SignUpController: NSObject {
         passwordTextField.addTarget(self, action: #selector(updateSignUpButtonIsEnabledState), for: .editingChanged)
 
         signUpButton.isEnabled = false
+        signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
 
         configureSignInButton(signInButton)
     }
@@ -60,6 +61,13 @@ class SignUpController: NSObject {
         let isEnabled = !textFieldIsEmpty(nameTextField) && !textFieldIsEmpty(emailTextField) && !textFieldIsEmpty(passwordTextField)
 
         signUpButton?.isEnabled = isEnabled
+    }
+
+    @objc func signUp() {
+        // Dismiss the keyboard.
+        UIApplication.shared.keyWindow?.endEditing(true)
+
+        // In a real app, the sign up flow would continue here.
     }
 
     /// If `true`, the text field contains the empty string, after trimming leading and
