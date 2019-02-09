@@ -81,7 +81,15 @@ public class ScrollingContentScrollView: UIScrollView {
     ///   If `nil`, the value of `visibilityScrollMargin` is used.
     public func scrollRectToVisible(_ rect: CGRect, animated: Bool, margin: CGFloat? = nil) {
         if let descendantView = self.descendentView(of: self, containing: rect, in: self) {
-            let rect = descendantView.convert(rect, from: self)
+            // If the rect matches the bounds of the descendant view, we'll substitute it with
+            // nil, which will be replaced with the bounds of the descendant view when it is
+            // processed later. The handles the case where the descendant view is resized
+            // between the time when self.scrollRectToVisible and super.scrollRectToVisible are
+            // called.
+            // Note: This does not handle the case where the rect is smaller than the
+            // descendant view's bounds and the size of the descedant view changes.
+            let boundsRect = descendantView.convert(rect, from: self)
+            let rect: CGRect? = boundsRect == descendantView.bounds ? nil : boundsRect
             scrollViewFilter?.submitScrollRectEvent(ScrollRectEvent(contentArea: .descendantViewRect(rect, descendantView: descendantView), animated: animated, margin: margin ?? visibilityScrollMargin))
 
             /// Continues in scrollViewFilter(_:adjustViewForScrollRectEvent:)...
@@ -90,6 +98,8 @@ public class ScrollingContentScrollView: UIScrollView {
 
         // No appropriate descendant view could be found, so `rect` is assumed to be defined
         // in the space of the scroll view's content area.
+        // Note: This does not handle the case where the size of the scroll view content
+        // area changes.
         scrollViewFilter?.submitScrollRectEvent(ScrollRectEvent(contentArea: .scrollViewRect(rect), animated: animated, margin: margin ?? visibilityScrollMargin))
 
         /// Continues in scrollViewFilter(_:adjustViewForScrollRectEvent:)...
@@ -157,6 +167,10 @@ extension ScrollingContentScrollView: ScrollViewFilterScrollDelegate {
         case .scrollViewRect(let rect):
             scrollViewRect = rect
         case .descendantViewRect(let rect, let descendantView):
+            // If rect is nil, make the entire descendant view visible.
+            // This handles the case where the descendant view has changed
+            // size since scrollRectToVisible was called.
+            let rect = rect ?? descendantView.bounds
             scrollViewRect = convert(rect, from: descendantView)
         }
 

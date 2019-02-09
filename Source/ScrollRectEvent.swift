@@ -20,7 +20,8 @@ internal struct ScrollRectEvent {
 
         /// The content view should be scrolled to make visible a rectangle in the
         /// coordinate space of the bounds of a descendant view of the content view.
-        case descendantViewRect(_ rect: CGRect, descendantView: UIView)
+        /// If `rect` is nil, the bounds of the descendant view is made visible.
+        case descendantViewRect(_ rect: CGRect?, descendantView: UIView)
     }
 
     /// The area of the scroll view's content to make visible.
