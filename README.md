@@ -115,9 +115,12 @@ To integrate `ScrollingContentViewController` programmatically:
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        contentView = UIView()
+        let contentView = UIView()
         
-        // Add all controls to contentView instead of view.
+        // Add all controls and constraints to contentView instead of view.
+        // ...
+        
+        self.contentView = contentView
     }
     ```
 

@@ -56,12 +56,7 @@ class SignUpViewController: ScrollingContentViewController {
 
     /// Creates the content view.
     private func createContentView() {
-        // When ScrollingContentViewController.contentView is assigned for the first time,
-        // this has the side effect of adding a scroll view to the view controller's root
-        // view, and adding the content view to the scroll view. If a new view was assigned
-        // to this property later, it would replace the existing content view in the scroll
-        // view, and leave the scroll view unchanged.
-        contentView = UIView()
+        let contentView = UIView()
 
         // Assign the content view's background color to transparent so it can be seen
         // through it to the gradient background view. This is the default value, but the
@@ -75,7 +70,14 @@ class SignUpViewController: ScrollingContentViewController {
         signUpButton.setTitle("Sign Up", for: .normal)
         signUpButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
 
-        addConstraints()
+        addConstraints(contentView: contentView)
+
+        // When ScrollingContentViewController.contentView is assigned for the first time,
+        // this has the side effect of adding a scroll view to the view controller's root
+        // view, and adding the content view to the scroll view. If a new view was assigned
+        // to this property later, it would replace the existing content view in the scroll
+        // view, and leave the scroll view unchanged.
+        self.contentView = contentView
     }
 
     private func configureTextFields() {
@@ -100,7 +102,7 @@ class SignUpViewController: ScrollingContentViewController {
     }
 
     // swiftlint:disable:next function_body_length
-    private func addConstraints() {
+    private func addConstraints(contentView: UIView) {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
