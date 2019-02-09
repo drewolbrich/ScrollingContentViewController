@@ -180,7 +180,7 @@ UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSp
 
 In Interface Builder, it's possible to design a view controller that is intentionally larger than the height of the screen. To do this, change the view controller's simulated size to Freeform and adjust its height. When used with ScrollingContentViewController, the view controller's oversized content view will scroll freely, assuming its constraints require it to be larger than the screen.
 
-<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Usage-Oversized-View-Controllers.png" width="610px">
+<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Usage-Oversized-View-Controllers.png" width="609px">
 
 ## Usage Without Subclassing
 
