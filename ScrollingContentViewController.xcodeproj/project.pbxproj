@@ -34,7 +34,6 @@
 		3A83273921E700A000E8D95C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273721E700A000E8D95C /* SignUpController.swift */; };
 		3A83273B21E703F600E8D95C /* SignUpControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */; };
 		3A83273C21E703F600E8D95C /* SignUpControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */; };
-		3AAC048C21E2D3FD00D94DA5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 3AAC048921E2D3FD00D94DA5 /* LICENSE */; };
 		3AAC048F21E2D4C500D94DA5 /* ScrollingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC048E21E2D4C500D94DA5 /* ScrollingContentViewController.swift */; };
 		3AAC049121E2D4F100D94DA5 /* ScrollingContentViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049021E2D4F100D94DA5 /* ScrollingContentViewManager.swift */; };
 		3AAC049821E2F01C00D94DA5 /* UIResponder+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049321E2F01C00D94DA5 /* UIResponder+Current.swift */; };
@@ -700,7 +699,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AAC048C21E2D3FD00D94DA5 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
