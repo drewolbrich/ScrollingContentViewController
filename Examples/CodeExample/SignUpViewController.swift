@@ -73,6 +73,7 @@ class SignUpViewController: ScrollingContentViewController {
         configureTextFields()
 
         signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
 
         addConstraints()
     }
