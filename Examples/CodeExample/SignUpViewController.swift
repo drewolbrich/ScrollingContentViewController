@@ -79,13 +79,13 @@ class SignUpViewController: ScrollingContentViewController {
     }
 
     private func configureTextFields() {
-        configureTextField(nameTextField, placeholder: "Name", textContentType: .name, autocapitalizationType: .words, keyboardType: .default, isSecureTextEntry: false)
-        configureTextField(emailTextField, placeholder: "Email", textContentType: .emailAddress, autocapitalizationType: .none, keyboardType: .emailAddress, isSecureTextEntry: false)
-        configureTextField(passwordTextField, placeholder: "Password", textContentType: nil, autocapitalizationType: .none, keyboardType: .default, isSecureTextEntry: true)
+        configureTextField(nameTextField, placeholder: "Name", textContentType: .name, autocapitalizationType: .words, returnKeyType: .next, keyboardType: .default, isSecureTextEntry: false)
+        configureTextField(emailTextField, placeholder: "Email", textContentType: .emailAddress, autocapitalizationType: .none, returnKeyType: .next, keyboardType: .emailAddress, isSecureTextEntry: false)
+        configureTextField(passwordTextField, placeholder: "Password", textContentType: nil, autocapitalizationType: .none, returnKeyType: .done, keyboardType: .default, isSecureTextEntry: true)
     }
 
     // swiftlint:disable:next function_parameter_count
-    private func configureTextField(_ textField: UITextField, placeholder: String?, textContentType: UITextContentType?, autocapitalizationType: UITextAutocapitalizationType, keyboardType: UIKeyboardType, isSecureTextEntry: Bool) {
+    private func configureTextField(_ textField: UITextField, placeholder: String?, textContentType: UITextContentType?, autocapitalizationType: UITextAutocapitalizationType, returnKeyType: UIReturnKeyType, keyboardType: UIKeyboardType, isSecureTextEntry: Bool) {
         textField.placeholder = placeholder
         textField.autocapitalizationType = autocapitalizationType
         textField.autocorrectionType = .no
@@ -93,7 +93,7 @@ class SignUpViewController: ScrollingContentViewController {
         textField.smartInsertDeleteType = .no
         textField.smartQuotesType = .no
         textField.spellCheckingType = .no
-        textField.returnKeyType = .next
+        textField.returnKeyType = returnKeyType
         textField.keyboardType = keyboardType
         textField.enablesReturnKeyAutomatically = true
         textField.isSecureTextEntry = isSecureTextEntry
