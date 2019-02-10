@@ -5,9 +5,10 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 ScrollingContentViewController makes it easy to create a view controller with a
-scrolling content view, or to convert an existing static view controller into
-one that scrolls. Most importantly, it takes care of several tricky undocumented
-edge cases involving the keyboard, navigation controllers, and device rotations.
+single scrolling content view, or to convert an existing static view controller
+into one that scrolls. Most importantly, it takes care of several tricky
+undocumented edge cases involving the keyboard, navigation controllers, and
+device rotations.
                        DESC
 
   s.homepage         = 'https://github.com/drewolbrich/ScrollingContentViewController'

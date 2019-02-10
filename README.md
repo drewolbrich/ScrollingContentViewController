@@ -21,19 +21,21 @@
 
 ## Overview
 
-ScrollingContentViewController makes it easy to create a view controller with a scrolling content view, or to convert an existing static view controller into one that scrolls. Most importantly, it takes care of several tricky undocumented edge cases involving the keyboard, navigation controllers, and device rotations.   
+ScrollingContentViewController makes it easy to create a view controller with a single scrolling content view, or to convert an existing static view controller into one that scrolls. Most importantly, it takes care of several tricky undocumented edge cases involving the keyboard, navigation controllers, and device rotations.   
 
 ## Background
 
-A common UIKit Auto Layout task involves creating a view controller with a fixed layout that is too large to fit older, smaller devices, or devices in landscape orientation, or the area of the screen that remains visible when the keyboard is presented.
+A common UIKit Auto Layout task involves creating a view controller with a fixed layout that is too large to fit older, smaller devices, or devices in landscape orientation, or the area of the screen that remains visible when the keyboard is presented. The problem is compounded when [Dynamic Type](https://developer.apple.com/documentation/uikit/uifont/scaling_fonts_automatically) is used to support large font sizes.  
 
 For example, consider this sign up screen, which fits iPhone Xs, but not iPhone SE with a keyboard:
 
 <img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Overview-Comparison.png" width="888px">
 
-This case can be handled by nesting the view inside a scroll view. You can do this manually in Interface Builder, as described by Apple's [Working with Scroll Views](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html) documentation, but many steps are required. If your view contains text fields, you'll have to write code to compensate for the keyboard when it's presented, as in [Managing the Keyboard](https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3). However, handling the keyboard robustly is [surprisingly complicated](#keyboard-resize-filtering), especially if your app presents a sequence of screens with keyboards in the context of a navigation controller, or when device orientation support is required.
+This case can be handled by nesting the view inside a scroll view. You could do this manually in Interface Builder, as described by Apple's [Working with Scroll Views](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html) documentation, but many steps are required. If your view contains text fields, you'll have to write code to adjust the view to compensate for the presented keyboard, as described in [Managing the Keyboard](https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3). However, handling the keyboard robustly is [surprisingly complicated](#keyboard-resize-filtering), especially if your app presents a sequence of screens with keyboards in the context of a navigation controller, or when device orientation support is required.
 
-To simplify this task, ScrollingContentViewController inserts the scroll view into the view hierarchy for you, along with all necessary Auto Layout constraints. When used in a storyboard, ScrollingContentViewController exposes a [`contentView`](#contentView) outlet that you connect to the view that you'd like make scrollable. Everything else is taken care of automatically.
+To simplify this task, ScrollingContentViewController inserts the scroll view into the view hierarchy for you at run time, along with all necessary Auto Layout constraints. 
+
+When used in a storyboard, ScrollingContentViewController exposes a [`contentView`](#contentView) outlet that you connect to the view that you'd like make scrollable. Everything else is taken care of automatically, including keyboard presentation and device orientation changes.
 
 ScrollingContentViewController can be configured using storyboards or entirely in code. The easiest way to use it is by subclassing the `ScrollingContentViewController` class instead of [`UIViewController`](https://developer.apple.com/documentation/uikit/uiviewcontroller). However, when this is not an option, a helper class called `ScrollingContentViewManager` can be composed with your existing view controller class instead.
 
@@ -89,7 +91,7 @@ To configure `ScrollingContentViewController` in a storyboard:
     }
     ```
 
-4. At runtime, the `ScrollingContentViewController` property [`contentView`](#contentView) will now reference the superview of the controls that you laid out in Interface Builder. This superview will no longer be referenced by the [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property, which will instead reference an empty root view behind the scrolling content view. If necessary, revise your code to reflect this change.
+4. At run time, the `ScrollingContentViewController` property [`contentView`](#contentView) will now reference the superview of the controls that you laid out in Interface Builder. This superview will no longer be referenced by the [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property, which will instead reference an empty root view behind the scrolling content view. If necessary, revise your code to reflect this change.
 
 Your content view will now scroll, provided that you ensure that the content view's Auto Layout constraints [sufficiently define its size](#auto-layout-considerations), and that this size is larger than the safe area.
 
@@ -405,7 +407,7 @@ During development, an alternate approach suggested by Apple, modifying the scro
 
 When a text field becomes the first responder, UIKit presents the keyboard. If the user taps another text field, changing the first responder, UIKit may adjust the keyboard's height if an input accessory view is specified. These changes may generate a sequence of [`keyboardWillShow`](https://developer.apple.com/documentation/uikit/uiresponder/1621576-keyboardwillshownotification) notifications, each with different keyboard heights.
 
-As an extreme example, if the user populates a text field by tapping on an AutoFill input accessory view, and this action causes a password text field to automatically become the first responder, one [`keyboardWillHide`](https://developer.apple.com/documentation/uikit/uikeyboardwillhidenotification) notification and two [`keyboardWillShow`](https://developer.apple.com/documentation/uikit/uiresponder/1621576-keyboardwillshownotification) notifications will be posted within a span of 0.1 seconds.
+As an extreme example, if the user populates an email text field by tapping on an AutoFill input accessory view item, and this action has the side effect of causing a password text field to become the first responder, one [`keyboardWillHide`](https://developer.apple.com/documentation/uikit/uikeyboardwillhidenotification) notification and two [`keyboardWillShow`](https://developer.apple.com/documentation/uikit/uiresponder/1621576-keyboardwillshownotification) notifications will be posted within a span of 0.1 seconds.
 
 If ScrollingContentViewController were to respond to each of these notifications individually, this would cause awkward discontinuities in the scroll view animation that accompanies changes to the keyboard's height.
 
