@@ -87,6 +87,7 @@ class SignUpViewController: ScrollingContentViewController {
     // swiftlint:disable:next function_parameter_count
     private func configureTextField(_ textField: UITextField, placeholder: String?, textContentType: UITextContentType?, autocapitalizationType: UITextAutocapitalizationType, returnKeyType: UIReturnKeyType, keyboardType: UIKeyboardType, isSecureTextEntry: Bool) {
         textField.placeholder = placeholder
+        textField.textContentType = textContentType
         textField.autocapitalizationType = autocapitalizationType
         textField.autocorrectionType = .no
         textField.smartDashesType = .no
