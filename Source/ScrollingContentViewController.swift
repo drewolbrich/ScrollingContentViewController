@@ -111,6 +111,8 @@ open class ScrollingContentViewController: UIViewController {
         assert(contentView != nil, "Either contentView must be assigned in viewDidLoad, or the contentView outlet must be connected in Interface Builder")
 
         assert(scrollingContentViewManager.contentView != nil, "The content view was not added to the view hierarchy. Did you forget to call super in viewDidLoad?")
+
+        scrollingContentViewManager.viewWillAppear(animated)
     }
 
     /// If you override this method, you must call `super` at some point in your

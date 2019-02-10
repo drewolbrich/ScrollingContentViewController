@@ -71,6 +71,14 @@ class SignUpViewController: UIViewController {
         signUpController = SignUpController(logoImageView: logoImageView, nameTextField: nameTextField, emailTextField: emailTextField, passwordTextField: passwordTextField, signUpButton: signUpButton, signInButton: signInButton, delegate: self)
     }
 
+    // Note: This method is not strictly required, but logs a warning if the content
+    // view's size is undefined.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        scrollingContentViewManager.viewWillAppear(animated)
+    }
+
     // Note: This is only required in apps that support device orientation changes.
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)

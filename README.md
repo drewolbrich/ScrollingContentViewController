@@ -111,18 +111,14 @@ To integrate `ScrollingContentViewController` programmatically:
 
 2. In your view controller's [`viewDidLoad`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) method, assign a new view to the [`contentView`](#contentView) property. Add all of your controls to this view instead of referencing the [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property so they can scroll freely. The view controller's root view referenced by its [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property now acts as a background view behind the scrolling content view. 
 
-    Before assigning the [`contentView`](#contentView) property, you must add enough Auto Layout constraints to [sufficiently define its size](#auto-layout-considerations), or a warning will be logged.
-
     ```swift
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let contentView = UIView()
+        contentView = UIView()
         
-        // Add all controls and constraints to contentView instead of view.
+        // Add all controls to contentView instead of view.
         // ...
-        
-        self.contentView = contentView
     }
     ```
 
@@ -220,6 +216,14 @@ class MyViewController: UIViewController {
         contentView.backgroundColor = nil
     }
 
+    // Note: This method is not strictly required, but logs a warning if the content
+    // view's size is undefined.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        scrollingContentViewManager.viewWillAppear(animated)
+    }
+
     // Note: This is only required in apps that support device orientation changes.
     override func viewWillTransition(to size: CGSize,
             with coordinator: UIViewControllerTransitionCoordinator) {
@@ -263,6 +267,14 @@ class MyViewController: UIViewController {
         // side effect of adding a scroll view to the view controller's root view, and
         // adding the content view to the scroll view.
         scrollingContentViewManager.contentView = contentView
+    }
+
+    // Note: This method is not strictly required, but logs a warning if the content
+    // view's size is undefined.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        scrollingContentViewManager.viewWillAppear(animated)
     }
 
     // Note: This is only required in apps that support device orientation changes.
