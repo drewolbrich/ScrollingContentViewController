@@ -431,7 +431,7 @@ ScrollingContentViewController correctly handles sequences of pushed view contro
 
 When device orientation changes occur, ScrollingContentViewController improves upon the default scroll view behavior by pinning the upper left corner of the scroll view in place, while at the same time preventing out of range content offsets. This matches the behavior of many of Apple's iOS apps.
 
-### keyboardDismissMode Enhancement
+### keyboardDismissMode
 
 ScrollingContentViewController automatically enables [`UIScrollView.alwaysBounceVertical`](https://developer.apple.com/documentation/uikit/uiscrollview/1619383-alwaysbouncevertical) while the keyboard is presented if [`UIScrollView.keyboardDismissMode`](https://developer.apple.com/documentation/uikit/uiscrollview/1619437-keyboarddismissmode) is set to anything other than [`none`](https://developer.apple.com/documentation/uikit/uiscrollview/keyboarddismissmode/none), so the keyboard can be dismissed even if the view is too short to normally allow scrolling.
 
@@ -439,7 +439,7 @@ ScrollingContentViewController automatically enables [`UIScrollView.alwaysBounce
 
 ScrollingContentViewController correctly handles the case when the scroll view doesn't cover the full extent of the screen, in which case it may only partially intersect the keyboard.
 
-### Text Field Animation Artifact Fix
+### Text Field Animation Artifacts
 
 As of iOS 12, if the user taps a sequence of custom text fields, UIKit may awkwardly animate the text field's text. ScrollingContentViewController suppresses this animation.
 
