@@ -389,7 +389,7 @@ When the content view is first assigned, if it has a superview, the scroll view 
 
 If the content view has no superview, the scroll view is parented to the view controller's root view and its frame and autoresizing mask are defined to track the root view's bounds.
 
-If the ScrollingContentViewController's `contentView` property references its root view, a new `UIView` is allocated and replaces it as the root view so that the scroll view will have an appropriate view to be parented view. 
+If the ScrollingContentViewController's `contentView` property references its root view, a new `UIView` is allocated and replaces it as the root view so that the scroll view will have an appropriate view to be parented to. 
 
 The content view's superview does not necessarily have to be the view controller's root view, and does not have to match the root view's size.
 
