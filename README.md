@@ -59,7 +59,7 @@ github "drewolbrich/ScrollingContentViewController"
 
 Subclasses of `ScrollingContentViewController` may be configured using [storyboards](#storyboards) or in [code](#code). 
 
-This library can also be used without subclassing, by composing the helper class `ScrollingContentViewManager` instead. See [Usage Without Subclassing](#usage-without-subclassing).
+This library may also be used without subclassing, by composing the helper class `ScrollingContentViewManager` instead. Refer to [Usage Without Subclassing](#usage-without-subclassing).
 
 ### Storyboards
 
