@@ -255,7 +255,7 @@ class MyViewController: UIViewController {
 
     lazy var scrollingContentViewManager = ScrollingContentViewManager(hostViewController: self)
 
-    var contentView = UIView()
+    let contentView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
