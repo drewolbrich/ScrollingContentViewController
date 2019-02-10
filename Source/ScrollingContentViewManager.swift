@@ -299,7 +299,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         // scroll view, leaving the content view without width and height constraints. The
         // content view will be assigned replacement minimum width and height constraints
         // later, in `addScrollViewAndContentViewConstraints`.
-        transferWidthAndHeightConstraints(of: contentView, to: scrollView)
+        moveWidthAndHeightConstraints(of: contentView, to: scrollView)
     }
 
     /// Adds the content view as a subview of the scroll view.
@@ -392,12 +392,12 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         }
     }
 
-    /// Transfers width and height constraints from one view to another view.
+    /// Moves width and height constraints from one view to another view.
     ///
     /// - Parameters:
     ///   - fromView: The view to transfer width and height constraints from.
     ///   - toView: The view to transfer width and height constraints to.
-    private func transferWidthAndHeightConstraints(of fromView: UIView, to toView: UIView) {
+    private func moveWidthAndHeightConstraints(of fromView: UIView, to toView: UIView) {
         var constraintsToRemove: [NSLayoutConstraint] = []
         for constraint in fromView.constraints {
             if constraint.firstAttribute == .width || constraint.firstAttribute == .height {
