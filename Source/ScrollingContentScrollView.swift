@@ -80,7 +80,7 @@ public class ScrollingContentScrollView: UIScrollView {
     ///   - margin: An optional margin around `rect` that should also be made visible.
     ///   If `nil`, the value of `visibilityScrollMargin` is used.
     public func scrollRectToVisible(_ rect: CGRect, animated: Bool, margin: CGFloat? = nil) {
-        if let descendantView = self.descendentView(of: self, containing: rect, in: self) {
+        if let descendantView = self.descendantView(of: self, containing: rect, in: self) {
             // If the rect matches the bounds of the descendant view, we'll substitute it with
             // nil, which will be replaced with the bounds of the descendant view when it is
             // processed later. The handles the case where the descendant view is resized
@@ -141,13 +141,13 @@ public class ScrollingContentScrollView: UIScrollView {
     ///   - rect: The rectangle to search for, defined in the coordinate space of `rectView`.
     ///   - rectView: The view that defines the coordinate space in which `rect` is defined.
     /// - Returns: The descendant view that contains `rect`.
-    private func descendentView(of view: UIView, containing rect: CGRect, in rectView: UIView) -> UIView? {
+    private func descendantView(of view: UIView, containing rect: CGRect, in rectView: UIView) -> UIView? {
         let frame = rectView.convert(rect, to: view)
         for subview in view.subviews {
             // Perform a depth first search so the descendant view with the greatest depth that
             // contains the rectangle will be found first.
-            if let descendentView = descendentView(of: subview, containing: rect, in: rectView) {
-                return descendentView
+            if let descendantView = descendantView(of: subview, containing: rect, in: rectView) {
+                return descendantView
             }
             if subview.frame.contains(frame) {
                 return subview
