@@ -35,7 +35,7 @@ This case can be handled by nesting the view inside a scroll view. You could do 
 
 To simplify this task, ScrollingContentViewController inserts the scroll view into the view hierarchy for you at run time, along with all necessary Auto Layout constraints. 
 
-When used in a storyboard, ScrollingContentViewController exposes an outlet called [`contentView`](#contentView) that you connect to the view that you'd like to make scrollable. This may be the view controller's root view. Everything else is taken care of automatically, including keyboard presentation and device orientation changes.
+When used in a storyboard, ScrollingContentViewController exposes an outlet called [`contentView`](#contentView) that you connect to the view that you'd like to make scrollable. This may be the view controller's root view. Everything else is taken care of automatically, including responding to keyboard presentation and device orientation changes.
 
 ScrollingContentViewController can be configured using storyboards or entirely in code. The easiest way to use it is by subclassing the `ScrollingContentViewController` class instead of [`UIViewController`](https://developer.apple.com/documentation/uikit/uiviewcontroller). However, when this is not an option, a helper class called `ScrollingContentViewManager` can be composed with your existing view controller class instead.
 
