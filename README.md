@@ -144,7 +144,7 @@ If the size of your view controller is intentionally highly constrained (e.g. co
 
 If you'd prefer not to use Auto Layout, the content view's size may be specified using [`intrinsicContentSize`](https://developer.apple.com/documentation/uikit/uiview/1622600-intrinsiccontentsize) instead of constraints.
 
-The default `UIView` content hugging priority is [`defaultLow`](https://developer.apple.com/documentation/uikit/uilayoutpriority/1622250-defaultlow), and consequently, the content view's intrinisic content size will normally be overridden by the minimum size constraints that ScrollingContentViewController assigns. If you'd like `intrinsicContentSize` to take precedence over these constraints, set the content view's content hugging priority to [`required`](https://developer.apple.com/documentation/uikit/uilayoutpriority/1622241-required).
+The default `UIView` content hugging priority is [`defaultLow`](https://developer.apple.com/documentation/uikit/uilayoutpriority/1622250-defaultlow), and consequently, the content view's intrinisic content size will normally be overridden by the minimum size constraints that ScrollingContentViewController assigns. If you'd like [`intrinsicContentSize`](https://developer.apple.com/documentation/uikit/uiview/1622600-intrinsiccontentsize) to take precedence over these constraints, set the content view's content hugging priority to [`required`](https://developer.apple.com/documentation/uikit/uilayoutpriority/1622241-required).
 
 ### Changing the Background Color
 
