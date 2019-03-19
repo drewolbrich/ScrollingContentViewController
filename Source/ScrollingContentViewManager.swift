@@ -540,7 +540,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
 
             if shouldAdjustAdditionalSafeAreaInsetsForKeyboard {
                 // When the keyboard is presented, the view controller's
-                // additionalSafeAreaInsets.bottom property us adjusted to compensate.
+                // additionalSafeAreaInsets.bottom property is adjusted to compensate.
                 //
                 // This approach is chosen instead of resizing the scroll view's content size,
                 // because doing so requires adjusting its scrollIndicatorInsets property to
