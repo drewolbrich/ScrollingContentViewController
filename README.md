@@ -124,7 +124,7 @@ To integrate `ScrollingContentViewController` programmatically:
     }
     ```
     
-You may also assign `contentView` to a subview of your view controller's root view, in which case only that subview will be made scrollable.
+You may also assign [`contentView`](#contentView) to a subview of your view controller's root view, in which case only that subview will be made scrollable.
 
 ## Caveats
 
