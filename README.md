@@ -77,7 +77,7 @@ To configure `ScrollingContentViewController` in a storyboard:
     }
     ```
 
-2. In Interface Builder's outline view, control-click your view controller and connect its [`contentView`](#contentView) outlet to your view controller's root view.
+2. In Interface Builder's outline view, control-click your view controller and connect its [`contentView`](#contentView) outlet to your view controller's root view or any other subview that you want to make scrollable.
 
     <img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Usage-Storyboards.png" width="471px">
 
@@ -123,6 +123,8 @@ To integrate `ScrollingContentViewController` programmatically:
         // ...
     }
     ```
+    
+You may also assign `contentView` to a subview of your view controller's root view, in which case only that subview will be made scrollable.
 
 ## Caveats
 
