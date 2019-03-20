@@ -261,44 +261,45 @@ extension KeyboardObserver: ScrollViewFilterKeyboardDelegate {
         assert(isAdjustingViewForKeyboardFrameEvent)
     }
 
-    /// Returns the height of portion of the keyboard's frame that overlaps the scroll
-    /// view.
+    /// Returns the height of portion of the keyboard's frame that overlaps the host
+    /// view controller's root view.
     ///
-    /// This method correctly handles the case where the view doesn't cover the entire
-    /// screen.
+    /// This method correctly handles the case where the view controller's root view
+    /// does not cover the entire screen, for example if the view controller is composed
+    /// within another view controller.
     ///
     /// - Parameter notification: The keyboard notification that provides the keyboard's
     /// frame.
-    /// - Returns: The height of portion of the keyboard's frame that overlaps the view.
+    /// - Returns: The height of portion of the keyboard's frame that overlaps the view
+    /// controller's root view.
     private func bottomInset(from keyboardFrame: CGRect?) -> CGFloat? {
         guard let keyboardFrame = keyboardFrame,
             let hostViewController = delegate?.hostViewController,
-            let view = hostViewController.view,
+            let rootView = hostViewController.view,
             // UIApplication.shared.keyWindow is nil when unit tests are executing, and
-            // view.window is nil outside of unit tests in the case when a view is being
-            // pushed.
-            let window = isUnitTest ? view.window : UIApplication.shared.keyWindow else {
+            // rootView is nil outside of unit tests in the case when a view is being pushed.
+            let window = isUnitTest ? rootView.window : UIApplication.shared.keyWindow else {
             return nil
         }
 
-        // The frame of the view in the window's coordinate space.
-        let viewFrameInWindow = window.convert(view.frame, from: view.superview)
+        // The frame of the view controller's root view in the window's coordinate space.
+        let rootViewFrameInWindow = window.convert(rootView.frame, from: rootView.superview)
 
-        // The intersection of the keyboard's frame with the frame of the view in the
-        // window's coordinate space.
-        let keyboardViewIntersectionFrameInWindow = viewFrameInWindow.intersection(keyboardFrame)
+        // The intersection of the keyboard's frame with the frame of the root view in
+        // the window's coordinate space.
+        let keyboardViewIntersectionFrameInWindow = rootViewFrameInWindow.intersection(keyboardFrame)
 
-        // The intersection of the keyboard's frame with the frame of the view in the
-        // view's coordinate space.
-        let keyboardViewIntersectionFrameInView = window.convert(keyboardViewIntersectionFrameInWindow, to: view)
+        // The intersection of the keyboard's frame with the frame of the root view in
+        // the root view's coordinate space.
+        let keyboardViewIntersectionFrameInRootView = window.convert(keyboardViewIntersectionFrameInWindow, to: rootView)
 
-        // The height of the region of the keyboard that overlaps the view.
-        let overlappingKeyboardHeight = keyboardViewIntersectionFrameInView.height
+        // The height of the region of the keyboard that overlaps the root view.
+        let overlappingKeyboardHeight = keyboardViewIntersectionFrameInRootView.height
 
-        // The view's safe area bottom inset.
-        let safeAreaBottomInset = hostViewController.view.safeAreaInsets.bottom
+        // The root view safe area bottom inset.
+        let safeAreaBottomInset = rootView.safeAreaInsets.bottom
 
-        // The view's additional safe area bottom inset.
+        // The host view controller's additional safe area bottom inset.
         let additionalSafeAreaBottomInset = hostViewController.additionalSafeAreaInsets.bottom
 
         // The bottom safe area bottom inset, excluding the additional safe area inset.
@@ -308,10 +309,10 @@ extension KeyboardObserver: ScrollViewFilterKeyboardDelegate {
         // into account, which would otherwise result in a negative number.
         let baseSafeAreaBottomInset = max(0, safeAreaBottomInset - additionalSafeAreaBottomInset)
 
-        // The height of area of the keyboard's frame that overlaps the view.
-        let keyboardHeightOverlappingView = max(0, overlappingKeyboardHeight - baseSafeAreaBottomInset)
+        // The height of area of the keyboard's frame that overlaps the root view.
+        let keyboardHeightOverlappingRootView = max(0, overlappingKeyboardHeight - baseSafeAreaBottomInset)
 
-        return keyboardHeightOverlappingView
+        return keyboardHeightOverlappingRootView
     }
 
 }

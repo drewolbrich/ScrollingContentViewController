@@ -12,7 +12,7 @@ import UIKit
 
 /// An object that adjusts the host view controller's
 /// `additionalSafeAreaInsets.bottom` property to compensate for the portion of the
-/// keyboard that overlaps the scroll view.
+/// keyboard that overlaps the host view controller's root view.
 internal class AdditionalSafeAreaInsetsController {
 
     private weak var delegate: AdditionalSafeAreaInsetsControlling?
@@ -26,12 +26,12 @@ internal class AdditionalSafeAreaInsetsController {
         self.delegate = delegate
     }
 
+    /// The height of the portion of the keyboard that overlaps the host view
+    /// controller's root view.
     var bottomInset: CGFloat = 0 {
         didSet {
-            guard let delegate = delegate,
-                let hostViewController = delegate.hostViewController,
-                let contentViewMinimumHeightConstraint = delegate.contentViewMinimumHeightConstraint else {
-                    return
+            guard let delegate = delegate, let hostViewController = delegate.hostViewController else {
+                return
             }
 
             var adjustedBottomInset = bottomInset
@@ -60,17 +60,7 @@ internal class AdditionalSafeAreaInsetsController {
                 return
             }
 
-            if delegate.shouldResizeContentViewForKeyboard {
-                // Adjust the additional safe area insets, possibly reducing the size
-                // of the content view.
-                hostViewController.additionalSafeAreaInsets.bottom = adjustedBottomInset
-            } else {
-                // Adjust the additional safe area insets, but also increase the minimum height of
-                // the content view to compensate. The size of the content view will remain
-                // unchanged.
-                hostViewController.additionalSafeAreaInsets.bottom = adjustedBottomInset
-                contentViewMinimumHeightConstraint.constant = adjustedBottomInset
-            }
+            hostViewController.additionalSafeAreaInsets.bottom = adjustedBottomInset
         }
     }
 
