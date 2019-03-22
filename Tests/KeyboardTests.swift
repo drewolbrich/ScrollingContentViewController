@@ -23,10 +23,9 @@ class KeyboardTests: XCTestCase {
     var scrollView: UIScrollView!
     var rootView: UIView!
 
-    let keyboardHeight: CGFloat = 258
-
     let navigationBarHeight: CGFloat = 64
     let tabBarHeight: CGFloat = 49
+    let keyboardHeight: CGFloat = 258
 
     override func setUp() {
         window = UIWindow(frame: UIScreen.main.bounds)
