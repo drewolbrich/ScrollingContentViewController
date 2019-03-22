@@ -30,7 +30,7 @@ internal class AdditionalSafeAreaInsetsController {
     /// controller's root view.
     var bottomInset: CGFloat = 0 {
         didSet {
-            guard let delegate = delegate, let hostViewController = delegate.hostViewController else {
+            guard let hostViewController = delegate?.hostViewController else {
                 return
             }
 
@@ -40,6 +40,8 @@ internal class AdditionalSafeAreaInsetsController {
                 let initialAdditionalSafeAreaInsets = hostViewController.additionalSafeAreaInsets
                 self.initialAdditionalSafeAreaInsets = initialAdditionalSafeAreaInsets
                 adjustedBottomInset = max(adjustedBottomInset, initialAdditionalSafeAreaInsets.bottom)
+                self.delegate?.additionalSafeAreaInsetsControllerWillUpdateAdditionalSafeAreaInsetsForPresentedKeyboard(self)
+                setAdditionalSafeAreaBottomInset(adjustedBottomInset)
             } else if bottomInset == 0 && oldValue != 0 {
                 // The keyboard was dismissed.
                 guard let initialAdditionalSafeAreaInsets = initialAdditionalSafeAreaInsets else {
@@ -48,6 +50,8 @@ internal class AdditionalSafeAreaInsetsController {
                 }
                 adjustedBottomInset = initialAdditionalSafeAreaInsets.bottom
                 self.initialAdditionalSafeAreaInsets = nil
+                setAdditionalSafeAreaBottomInset(adjustedBottomInset)
+                self.delegate?.additionalSafeAreaInsetsControllerDidUpdateAdditionalSafeAreaInsetsForDismissedKeyboard(self)
             } else if bottomInset != oldValue {
                 // The keyboard changed size.
                 guard let initialAdditionalSafeAreaInset = initialAdditionalSafeAreaInsets else {
@@ -55,13 +59,20 @@ internal class AdditionalSafeAreaInsetsController {
                     return
                 }
                 adjustedBottomInset = max(adjustedBottomInset, initialAdditionalSafeAreaInset.bottom)
+                setAdditionalSafeAreaBottomInset(adjustedBottomInset)
+
             } else {
                 // The size of the keyboard is unchanged.
                 return
             }
-
-            hostViewController.additionalSafeAreaInsets.bottom = adjustedBottomInset
         }
+    }
+
+    private func setAdditionalSafeAreaBottomInset(_ additionalSafeAreaBottomInset: CGFloat) {
+        guard let hostViewController = delegate?.hostViewController else {
+            return
+        }
+        hostViewController.additionalSafeAreaInsets.bottom = additionalSafeAreaBottomInset
     }
 
 }

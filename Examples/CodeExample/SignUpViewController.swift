@@ -163,7 +163,7 @@ class SignUpViewController: ScrollingContentViewController {
         logoImageView.setContentHuggingPriority(.required, for: .vertical)
         logoImageView.setContentHuggingPriority(.required, for: .horizontal)
 
-        contentView.addConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
     }
 
     private func addPillViewConstraints(to pillView: UIView) {

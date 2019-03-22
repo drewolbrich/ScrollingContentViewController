@@ -16,8 +16,12 @@ internal protocol AdditionalSafeAreaInsetsControlling: class {
     /// The view controller whose `additionalSafeAreaInsets` property is manipulated.
     var hostViewController: UIViewController? { get }
 
-    /// If `true`, the content view is allowed to shrink to compensate for the reduced
-    /// visible area of the screen when the keyboard is presented.
-    var shouldResizeContentViewForKeyboard: Bool { get }
+    /// Tells the delegate that the host view controller's additional safe area insets
+    /// are about to be updated because the keyboard has been presented.
+    func additionalSafeAreaInsetsControllerWillUpdateAdditionalSafeAreaInsetsForPresentedKeyboard(_ additionalSafeAreaInsetsController: AdditionalSafeAreaInsetsController)
+
+    /// Tells the delegate that the host view controller's additional safe area insets
+    /// have been restored to their original values after the keyboard was dismissed.
+    func additionalSafeAreaInsetsControllerDidUpdateAdditionalSafeAreaInsetsForDismissedKeyboard(_ additionalSafeAreaInsetsController: AdditionalSafeAreaInsetsController)
 
 }

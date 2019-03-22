@@ -74,11 +74,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
     /// the scroll view obscured by the presented keyboard, if possible.
     ///
     /// The default value is `false`.
-    public var shouldResizeContentViewForKeyboard = false {
-        didSet {
-            updateContentViewMinimumHeightConstraints()
-        }
-    }
+    public var shouldResizeContentViewForKeyboard = false
 
     /// If `true`, the view controller's `additionalSafeAreaInsets` property is adjusted
     /// when the keyboard is presented.
@@ -86,18 +82,19 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
     /// The default value is `true`.
     public var shouldAdjustAdditionalSafeAreaInsetsForKeyboard = true
 
-    /// A constraint that enforces a minimum width for the content view.
+    /// A constraint that enforces a minimum width for the content view equal to the
+    /// scroll view's safe area width.
     private var contentViewMinimumWidthConstraint: NSLayoutConstraint?
 
     /// A constraint that enforces a minimum height for the content view equal to the
-    /// scroll view's frame height. This constraint is active if
-    /// `shouldResizeContentViewForKeyboard` is `false`.
-    private var contentViewMinimumHeightScrollViewFrameConstraint: NSLayoutConstraint?
+    /// scroll view's safe area height.
+    private var contentViewMinimumHeightConstraint: NSLayoutConstraint?
 
-    /// A constraint that enforces a minimum height for the content view equal to the
-    /// scroll view's safe area height. This constraint is active if
-    /// `shouldResizeContentViewForKeyboard` is `true`.
-    private var contentViewMinimumHeightScrollViewSafeAreaConstraint: NSLayoutConstraint?
+    /// When the keyboard is presented, if `shouldResizeContentViewForKeyboard` is
+    /// false, this constraint is assigned to the current height of the content view. It
+    /// is deactivated when the keyboard is dismissed. This prevents the content view
+    /// from shrinking in response to the presented keyboard.
+    private var contentViewMinimumHeightForPresentedKeyboardConstraint: NSLayoutConstraint?
 
     /// An object that responds to notifications posted by UIKit when the keyboard is
     /// presented or dismissed, and which adjusts the scroll view to compensate.
@@ -465,15 +462,15 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         let contentViewMinimumWidthConstraint = contentView.widthAnchor.constraint(greaterThanOrEqualTo: scrollView.safeAreaLayoutGuide.widthAnchor, multiplier: 1)
         self.contentViewMinimumWidthConstraint = contentViewMinimumWidthConstraint
 
-        let contentViewMinimumHeightScrollViewFrameConstraint = contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor, multiplier: 1)
-        self.contentViewMinimumHeightScrollViewFrameConstraint = contentViewMinimumHeightScrollViewFrameConstraint
+        let contentViewMinimumHeightConstraint = contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.safeAreaLayoutGuide.heightAnchor, multiplier: 1)
+        self.contentViewMinimumHeightConstraint = contentViewMinimumHeightConstraint
 
-        let contentViewMinimumHeightScrollViewSafeAreaConstraint = contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.safeAreaLayoutGuide.heightAnchor, multiplier: 1)
-        self.contentViewMinimumHeightScrollViewSafeAreaConstraint = contentViewMinimumHeightScrollViewSafeAreaConstraint
+        let contentViewMinimumHeightForPresentedKeyboardConstraint = contentView.heightAnchor.constraint(equalToConstant: 0)
+        self.contentViewMinimumHeightForPresentedKeyboardConstraint = contentViewMinimumHeightForPresentedKeyboardConstraint
 
         contentViewMinimumWidthConstraint.priority = minimumSizeConstraintPriority
-        contentViewMinimumHeightScrollViewFrameConstraint.priority = minimumSizeConstraintPriority
-        contentViewMinimumHeightScrollViewSafeAreaConstraint.priority = minimumSizeConstraintPriority
+        contentViewMinimumHeightConstraint.priority = minimumSizeConstraintPriority
+        contentViewMinimumHeightForPresentedKeyboardConstraint.priority = minimumSizeConstraintPriority
 
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -483,21 +480,15 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
             scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             contentViewMinimumWidthConstraint,
-            contentViewMinimumHeightScrollViewFrameConstraint,
-            contentViewMinimumHeightScrollViewSafeAreaConstraint
+            contentViewMinimumHeightConstraint,
+            contentViewMinimumHeightForPresentedKeyboardConstraint
             ]
 
-        scrollView.addConstraints(constraints)
+        NSLayoutConstraint.activate(constraints)
 
-        updateContentViewMinimumHeightConstraints()
-    }
-
-    /// Activates either `contentViewMinimumHeightScrollViewFrameConstraint` or
-    /// `contentViewMinimumHeightScrollViewSafeAreaConstraint` given the value of
-    /// `shouldResizeContentViewForKeyboard`.
-    private func updateContentViewMinimumHeightConstraints() {
-        contentViewMinimumHeightScrollViewFrameConstraint?.isActive = !shouldResizeContentViewForKeyboard
-        contentViewMinimumHeightScrollViewSafeAreaConstraint?.isActive = shouldResizeContentViewForKeyboard
+        // This constraint is activated only when the keyboard is presented
+        // and shouldResizeContentViewForKeyboard is false.
+        contentViewMinimumHeightForPresentedKeyboardConstraint.isActive = false
     }
 
     /// Constrains a scroll view content offset so that it lies within the legal range
@@ -537,20 +528,21 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         return scrollView.bounds.inset(by: scrollView.adjustedContentInset).size
     }
 
-    /// Adjusts the view to compensate for the portion of the keyboard that overlaps the
-    /// scroll view.
+    /// Adjusts the view controller to compensate for the portion of the keyboard that
+    /// overlaps the view controller's root view.
     ///
     /// This method is called by `KeyboardObserver` when the keyboard is presented,
     /// dismissed, or changes size.
     ///
     /// - Parameter bottomInset: The height of the area of keyboard's frame that
-    /// overlaps the view.
+    /// overlaps the view controller's root view.
     func adjustViewForKeyboard(withBottomInset bottomInset: CGFloat) {
         self.bottomInset = bottomInset
     }
 
-    /// The bottom inset to assign to the view controller's additional safe area
-    /// to compensate for the area of the keyboard that overlaps the scroll view.
+    /// The bottom inset to assign to the view controller's additional safe area to
+    /// compensate for the area of the keyboard that overlaps the view controller's root
+    /// view.
     private var bottomInset: CGFloat = 0 {
         didSet {
             if bottomInset == oldValue {
@@ -574,6 +566,25 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
                 additionalSafeAreaInsetsController.bottomInset = bottomInset
             }
         }
+    }
+
+    func additionalSafeAreaInsetsControllerWillUpdateAdditionalSafeAreaInsetsForPresentedKeyboard(_ additionalSafeAreaInsetsController: AdditionalSafeAreaInsetsController) {
+        guard !shouldResizeContentViewForKeyboard else {
+            // Don't constrain the height of the keyboard.
+            return
+        }
+        guard let contentViewMinimumHeightForPresentedKeyboardConstraint = contentViewMinimumHeightForPresentedKeyboardConstraint, let contentView = contentView else {
+            return
+        }
+
+        // When the keyboard is presented, just before AdditionalSafeAreaInsetsController 
+
+        contentViewMinimumHeightForPresentedKeyboardConstraint.constant = contentView.frame.height
+        contentViewMinimumHeightForPresentedKeyboardConstraint.isActive = true
+    }
+
+    func additionalSafeAreaInsetsControllerDidUpdateAdditionalSafeAreaInsetsForDismissedKeyboard(_ additionalSafeAreaInsetsController: AdditionalSafeAreaInsetsController) {
+        contentViewMinimumHeightForPresentedKeyboardConstraint?.isActive = false
     }
 
 }

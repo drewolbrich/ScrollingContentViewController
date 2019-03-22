@@ -43,7 +43,7 @@ class ContentView: UIView {
         widthConstraint.priority = .defaultLow
         heightConstraint.priority = .defaultLow
 
-        addConstraints([widthConstraint, heightConstraint])
+        NSLayoutConstraint.activate([widthConstraint, heightConstraint])
     }
 
 }

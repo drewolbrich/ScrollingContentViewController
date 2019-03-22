@@ -26,11 +26,11 @@ internal protocol KeyboardObservering: class {
     /// the scroll view obscured by the presented keyboard, if possible.
     var shouldResizeContentViewForKeyboard: Bool { get }
 
-    /// Adjusts the view to compensate for the portion of the keyboard that overlaps the
-    /// scroll view.
+    /// Adjusts the view controller to compensate for the portion of the keyboard that
+    /// overlaps the view controller's root view.
     ///
     /// - Parameter bottomInset: The height of the vertical extent of the keyboard that
-    /// overlaps the scroll view.
+    /// overlaps the view controller's root view.
     func adjustViewForKeyboard(withBottomInset bottomInset: CGFloat)
 
 }
