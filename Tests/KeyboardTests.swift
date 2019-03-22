@@ -23,6 +23,8 @@ class KeyboardTests: XCTestCase {
     var scrollView: UIScrollView!
     var rootView: UIView!
 
+    let keyboardHeight: CGFloat = 258
+
     override func setUp() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window.isHidden = false
@@ -34,8 +36,6 @@ class KeyboardTests: XCTestCase {
         contentView = ContentView()
 
         scrollingContentViewManager.contentView = contentView
-
-        scrollingContentViewManager.shouldResizeContentViewForKeyboard = true
 
         hostViewController.beginAppearanceTransition(true, animated: false)
         window.rootViewController = hostViewController
@@ -80,23 +80,43 @@ class KeyboardTests: XCTestCase {
         XCTAssertEqual(scrollView.contentSize, rootViewSafeAreaSize)
     }
 
-    /// Tests that presenting the keyboard affects the size of the content view.
-    func testPresentedKeyboard() {
-        let keyboardHeight: CGFloat = 258
-        let keyboardFrame = CGRect(x: 0, y: window.bounds.height - keyboardHeight, width: window.bounds.width, height: keyboardHeight)
+    /// Tests that presenting the keyboard does not affect the size of the content
+    /// view when `shouldResizeContentViewForKeyboard` is `false`.
+    func testPresentedKeyboardWithFixedContentView() {
+        scrollingContentViewManager.shouldResizeContentViewForKeyboard = false
+
+        let initialSafeAreaSize = rootView.bounds.inset(by: rootView.safeAreaInsets).size
+
+        presentKeyboard()
+
+        let finalSafeAreaSize = CGSize(width: initialSafeAreaSize.width, height: initialSafeAreaSize.height)
+
+        XCTAssertEqual(contentView.frame.size, finalSafeAreaSize)
+    }
+
+    /// Tests that presenting the keyboard affects the size of the content view
+    /// when `shouldResizeContentViewForKeyboard` is `true`.
+    func testPresentedKeyboardWithResizedContentView() {
+        scrollingContentViewManager.shouldResizeContentViewForKeyboard = true
 
         let initialSafeAreaSize = rootView.bounds.inset(by: rootView.safeAreaInsets).size
 
         let initialBottomInset = scrollView.adjustedContentInset.bottom
 
-        // A test keyboard frame must be injected here because keyboard notifications will
-        // not be generated when a first responder is assigned within a test.
-        let keyboardFrameEvent = KeyboardFrameEvent(keyboardFrame: keyboardFrame, duration: 0.35)
-        scrollingContentViewManager.keyboardObserver?.testKeyboardFrameEvent(keyboardFrameEvent)
+        presentKeyboard()
 
         let finalSafeAreaSize = CGSize(width: initialSafeAreaSize.width, height: initialSafeAreaSize.height - (keyboardHeight - initialBottomInset))
 
         XCTAssertEqual(contentView.frame.size, finalSafeAreaSize)
+    }
+
+    private func presentKeyboard() {
+        let keyboardFrame = CGRect(x: 0, y: window.bounds.height - keyboardHeight, width: window.bounds.width, height: keyboardHeight)
+
+        // A test keyboard frame must be injected here because keyboard notifications will
+        // not be generated when a first responder is assigned within a test.
+        let keyboardFrameEvent = KeyboardFrameEvent(keyboardFrame: keyboardFrame, duration: 0.35)
+        scrollingContentViewManager.keyboardObserver?.testKeyboardFrameEvent(keyboardFrameEvent)
     }
 
 }
