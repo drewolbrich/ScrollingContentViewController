@@ -34,6 +34,7 @@
 		3A83273921E700A000E8D95C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273721E700A000E8D95C /* SignUpController.swift */; };
 		3A83273B21E703F600E8D95C /* SignUpControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */; };
 		3A83273C21E703F600E8D95C /* SignUpControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */; };
+		3A881DB9224525F500E21CA2 /* InsetContentViewKeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A881DB72245257E00E21CA2 /* InsetContentViewKeyboardTests.swift */; };
 		3AAC048F21E2D4C500D94DA5 /* ScrollingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC048E21E2D4C500D94DA5 /* ScrollingContentViewController.swift */; };
 		3AAC049121E2D4F100D94DA5 /* ScrollingContentViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049021E2D4F100D94DA5 /* ScrollingContentViewManager.swift */; };
 		3AAC049821E2F01C00D94DA5 /* UIResponder+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049321E2F01C00D94DA5 /* UIResponder+Current.swift */; };
@@ -215,6 +216,7 @@
 		3A7014BB21EBD723002C6740 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A83273721E700A000E8D95C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpControllerDelegate.swift; sourceTree = "<group>"; };
+		3A881DB72245257E00E21CA2 /* InsetContentViewKeyboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetContentViewKeyboardTests.swift; sourceTree = "<group>"; };
 		3AAC048821E2D3FD00D94DA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3AAC048921E2D3FD00D94DA5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ScrollingContentViewController.podspec; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				3AD597CA21F3995A00F220A0 /* ManagerTests.swift */,
 				3AD597CE21F3AD8000F220A0 /* IntrinsicSizeTests.swift */,
 				3AD597D021F3B70400F220A0 /* KeyboardTests.swift */,
+				3A881DB72245257E00E21CA2 /* InsetContentViewKeyboardTests.swift */,
 				3A3652F521F38E750010CE55 /* StoryboardTests.storyboard */,
 				3A3652F721F390110010CE55 /* ContentView.swift */,
 				3AD597CC21F3AC2000F220A0 /* IntrinsicSizeContentView.swift */,
@@ -815,6 +818,7 @@
 				3A3652F821F390110010CE55 /* ContentView.swift in Sources */,
 				3A5702DD21E2CBB600E4CC55 /* StoryboardTests.swift in Sources */,
 				3AD597CF21F3AD8000F220A0 /* IntrinsicSizeTests.swift in Sources */,
+				3A881DB9224525F500E21CA2 /* InsetContentViewKeyboardTests.swift in Sources */,
 				3AD597D121F3B70400F220A0 /* KeyboardTests.swift in Sources */,
 				3AD597C921F3964000F220A0 /* CodeTests.swift in Sources */,
 				3AD597CD21F3AC2000F220A0 /* IntrinsicSizeContentView.swift in Sources */,

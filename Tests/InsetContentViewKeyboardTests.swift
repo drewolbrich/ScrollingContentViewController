@@ -1,8 +1,8 @@
 //
-//  KeyboardTests.swift
-//  ScrollingContentViewControllerTests
+//  InsetContentViewKeyboardTests.swift
+//  ScrollingContentViewController
 //
-//  Created by Drew Olbrich on 1/19/19.
+//  Created by Drew Olbrich on 3/22/19.
 //  Copyright 2019 Oath Inc.
 //
 //  Licensed under the terms of the MIT License. See the file LICENSE for the full terms.
@@ -11,8 +11,9 @@
 import XCTest
 @testable import ScrollingContentViewController
 
-/// Test case of presenting the keyboard.
-class KeyboardTests: XCTestCase {
+/// Test case of presenting the keyboard over a content view that is inset
+/// within the host view controller's root view.
+class InsetContentViewKeyboardTests: XCTestCase {
 
     var window: UIWindow!
 
@@ -27,6 +28,8 @@ class KeyboardTests: XCTestCase {
     let tabBarHeight: CGFloat = 49
     let keyboardHeight: CGFloat = 258
 
+    let contentViewInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+
     override func setUp() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window.isHidden = false
@@ -39,6 +42,14 @@ class KeyboardTests: XCTestCase {
         scrollingContentViewManager = ScrollingContentViewManager(hostViewController: hostViewController)
 
         contentView = UIView()
+
+        hostViewController.view.addSubview(contentView)
+
+        // Inset the content view within the initial safe area defined by the navigation
+        // bar and tab bar, but not so much that it won't be overlapped by the keyboard
+        // when it is presented.
+        contentView.frame = hostViewController.view.bounds.inset(by: contentViewInset)
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         scrollingContentViewManager.contentView = contentView
 
@@ -76,13 +87,15 @@ class KeyboardTests: XCTestCase {
 
     /// Tests that the content view and the scroll view have the expected size.
     func testDefaultLayout() {
-        let rootViewSafeAreaSize = rootView.bounds.inset(by: rootView.safeAreaInsets).size
+        let scrollViewSafeAreaFrame = scrollView.safeAreaLayoutGuide.layoutFrame
 
-        // The content view's frame should match the size of the root view's safe area.
-        XCTAssertEqual(contentView.frame.size, rootViewSafeAreaSize)
+        // The content view's frame should match the size of the root view's safe area that
+        // intersects the scroll view frame.
+        XCTAssertEqual(contentView.frame.size, scrollViewSafeAreaFrame.size)
 
-        // The scroll view's content size should match that of the root view's safe area.
-        XCTAssertEqual(scrollView.contentSize, rootViewSafeAreaSize)
+        // The scroll view's content size should match that of the root view's safe area
+        // that intersects the scroll view frame.
+        XCTAssertEqual(scrollView.contentSize, scrollViewSafeAreaFrame.size)
     }
 
     /// Tests that presenting the keyboard does not affect the size of the content
@@ -90,11 +103,11 @@ class KeyboardTests: XCTestCase {
     func testPresentedKeyboardWithFixedContentView() {
         scrollingContentViewManager.shouldResizeContentViewForKeyboard = false
 
-        let initialContentViewSize = rootView.bounds.inset(by: rootView.safeAreaInsets).size
+        let initialContentViewSize = scrollView.safeAreaLayoutGuide.layoutFrame.size
 
         presentKeyboard()
 
-        let expectedContentViewSize = CGSize(width: initialContentViewSize.width, height: initialContentViewSize.height)
+        let expectedContentViewSize = initialContentViewSize
 
         XCTAssertEqual(contentView.frame.size, expectedContentViewSize)
     }
@@ -104,12 +117,10 @@ class KeyboardTests: XCTestCase {
     func testPresentedKeyboardWithResizedContentView() {
         scrollingContentViewManager.shouldResizeContentViewForKeyboard = true
 
-        let initialContentViewSize = rootView.bounds.inset(by: rootView.safeAreaInsets).size
+        let initialContentViewSize = scrollView.safeAreaLayoutGuide.layoutFrame.size
 
         presentKeyboard()
 
-        // The size of the expected safe area of the view controller's root view after the
-        // keyboard is presented.
         let expectedContentViewSize = CGSize(width: initialContentViewSize.width, height: initialContentViewSize.height - (keyboardHeight - tabBarHeight))
 
         XCTAssertEqual(contentView.frame.size, expectedContentViewSize)
