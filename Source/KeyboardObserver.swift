@@ -146,7 +146,7 @@ internal class KeyboardObserver: NSObject {
         }
     }
 
-    /// Tests submitting a keyboard frame event.
+    /// Tests submitting a keyboard frame event. This method is used by unit tests only.
     internal func testKeyboardFrameEvent(_ keyboardFrameEvent: KeyboardFrameEvent) {
         // This method is intended for use in unit tests only.
         assert(isUnitTest)
