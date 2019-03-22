@@ -120,7 +120,7 @@ internal class KeyboardObserver: NSObject {
             }
         }
 
-        // Continues in adjustViewForKeyboard(withKeyboardFrameEvent:)...
+        // Continues in scrollViewFilter(_:adjustViewForKeyboardFrameEvent:)...
     }
 
     /// Updates the view controller to compensate for the current state of the keyboard.
@@ -142,7 +142,7 @@ internal class KeyboardObserver: NSObject {
                 scrollViewFilter.flush()
             }
 
-            // Continues in adjustViewForKeyboard(withKeyboardFrameEvent:)...
+            // Continues in scrollViewFilter(_:adjustViewForKeyboardFrameEvent:)...
         }
     }
 
@@ -158,7 +158,7 @@ internal class KeyboardObserver: NSObject {
         scrollViewFilter.submitKeyboardFrameEvent(keyboardFrameEvent)
         scrollViewFilter.flush()
 
-        // Continues in adjustViewForKeyboard(withKeyboardFrameEvent:)...
+        // Continues in scrollViewFilter(_:adjustViewForKeyboardFrameEvent:)...
     }
 
     /// Suppresses unwanted text field text animation.
