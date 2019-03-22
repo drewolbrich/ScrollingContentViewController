@@ -25,11 +25,17 @@ class KeyboardTests: XCTestCase {
 
     let keyboardHeight: CGFloat = 258
 
+    let navigationBarHeight: CGFloat = 64
+    let tabBarHeight: CGFloat = 49
+
     override func setUp() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window.isHidden = false
 
         hostViewController = UIViewController()
+
+        hostViewController.additionalSafeAreaInsets.top = navigationBarHeight
+        hostViewController.additionalSafeAreaInsets.bottom = tabBarHeight
 
         scrollingContentViewManager = ScrollingContentViewManager(hostViewController: hostViewController)
 
@@ -105,9 +111,11 @@ class KeyboardTests: XCTestCase {
 
         presentKeyboard()
 
-        let finalSafeAreaSize = CGSize(width: initialSafeAreaSize.width, height: initialSafeAreaSize.height - (keyboardHeight - initialBottomInset))
+        // The size of the expected safe area of the view controller's root view after the
+        // keyboard is presented.
+        let expectedSafeAreaSize = CGSize(width: initialSafeAreaSize.width, height: initialSafeAreaSize.height - (keyboardHeight - initialBottomInset))
 
-        XCTAssertEqual(contentView.frame.size, finalSafeAreaSize)
+        XCTAssertEqual(contentView.frame.size, expectedSafeAreaSize)
     }
 
     private func presentKeyboard() {
