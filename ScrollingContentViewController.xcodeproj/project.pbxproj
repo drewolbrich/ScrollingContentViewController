@@ -219,7 +219,7 @@
 		3A881DB72245257E00E21CA2 /* InsetContentViewKeyboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetContentViewKeyboardTests.swift; sourceTree = "<group>"; };
 		3AAC048821E2D3FD00D94DA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3AAC048921E2D3FD00D94DA5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ScrollingContentViewController.podspec; sourceTree = "<group>"; };
+		3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ScrollingContentViewController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3AAC048E21E2D4C500D94DA5 /* ScrollingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingContentViewController.swift; sourceTree = "<group>"; };
 		3AAC049021E2D4F100D94DA5 /* ScrollingContentViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingContentViewManager.swift; sourceTree = "<group>"; };
 		3AAC049321E2F01C00D94DA5 /* UIResponder+Current.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+Current.swift"; sourceTree = "<group>"; };
