@@ -465,7 +465,7 @@ public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceC
         let contentViewMinimumHeightConstraint = contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.safeAreaLayoutGuide.heightAnchor, multiplier: 1)
         self.contentViewMinimumHeightConstraint = contentViewMinimumHeightConstraint
 
-        let contentViewMinimumHeightForPresentedKeyboardConstraint = contentView.heightAnchor.constraint(equalToConstant: 0)
+        let contentViewMinimumHeightForPresentedKeyboardConstraint = contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 0)
         self.contentViewMinimumHeightForPresentedKeyboardConstraint = contentViewMinimumHeightForPresentedKeyboardConstraint
 
         contentViewMinimumWidthConstraint.priority = minimumSizeConstraintPriority
