@@ -2,7 +2,7 @@
 
 [![Travis](https://img.shields.io/travis/drewolbrich/ScrollingContentViewController.svg)](https://travis-ci.org/drewolbrich/ScrollingContentViewController)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgray.svg)](http://developer.apple.com/ios)
-[![Swift 4.2](https://img.shields.io/badge/swift-4.2-red.svg?style=flat)](https://developer.apple.com/swift)
+[![Swift 5](https://img.shields.io/badge/swift-5-red.svg?style=flat)](https://developer.apple.com/swift)
 [![License](https://img.shields.io/github/license/drewolbrich/ScrollingContentViewController.svg)](LICENSE)
 [![Twitter](https://img.shields.io/badge/twitter-@drewolbrich-blue.svg)](http://twitter.com/drewolbrich)
 
@@ -21,11 +21,11 @@
 
 ## Overview
 
-ScrollingContentViewController makes it easy to create a view controller with a single scrolling content view, or to convert an existing static view controller into one that scrolls. Most importantly, it takes care of several tricky undocumented edge cases involving the keyboard, navigation controllers, and device rotations.   
+ScrollingContentViewController makes it easy to create a view controller with a single scrolling content view, or to convert an existing static view controller into one that scrolls. Most importantly, it takes care of several tricky undocumented edge cases involving the keyboard, navigation controllers, and device rotations.
 
 ## Background
 
-A common UIKit Auto Layout task involves creating a view controller with a fixed layout that is too large to fit older, smaller devices, or devices in landscape orientation, or the area of the screen that remains visible when the keyboard is presented. The problem is compounded when [Dynamic Type](https://developer.apple.com/documentation/uikit/uifont/scaling_fonts_automatically) is used to support large font sizes.  
+A common UIKit Auto Layout task involves creating a view controller with a fixed layout that is too large to fit older, smaller devices, or devices in landscape orientation, or the area of the screen that remains visible when the keyboard is presented. The problem is compounded when [Dynamic Type](https://developer.apple.com/documentation/uikit/uifont/scaling_fonts_automatically) is used to support large font sizes.
 
 For example, consider this sign up screen, which fits iPhone Xs, but not iPhone SE with a keyboard:
 
@@ -33,7 +33,7 @@ For example, consider this sign up screen, which fits iPhone Xs, but not iPhone 
 
 This case can be handled by nesting the view inside a scroll view. You could do this manually in Interface Builder, as described by Apple's [Working with Scroll Views](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html) documentation, but many steps are required. If your view contains text fields, you'll have to write code to adjust the view to compensate for the presented keyboard, as described in [Managing the Keyboard](https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3). However, handling the keyboard robustly is [surprisingly complicated](#keyboard-resize-filtering), especially if your app presents a sequence of screens with keyboards in the context of a navigation controller, or when device orientation support is required.
 
-To simplify this task, ScrollingContentViewController inserts the scroll view into the view hierarchy for you at run time, along with all necessary Auto Layout constraints. 
+To simplify this task, ScrollingContentViewController inserts the scroll view into the view hierarchy for you at run time, along with all necessary Auto Layout constraints.
 
 When used in a storyboard, ScrollingContentViewController exposes an outlet called [`contentView`](#contentView) that you connect to the view that you'd like to make scrollable. This may be the view controller's root view or an arbitrary subview. Everything else is taken care of automatically, including responding to keyboard presentation and device orientation changes.
 
@@ -57,7 +57,7 @@ github "drewolbrich/ScrollingContentViewController"
 
 ## Usage
 
-Subclasses of `ScrollingContentViewController` may be configured using [storyboards](#storyboards) or in [code](#code). 
+Subclasses of `ScrollingContentViewController` may be configured using [storyboards](#storyboards) or in [code](#code).
 
 This library may also be used without subclassing, by composing the helper class `ScrollingContentViewManager` instead. Refer to [Usage Without Subclassing](#usage-without-subclassing).
 
@@ -71,9 +71,9 @@ To configure `ScrollingContentViewController` in a storyboard:
     import ScrollingContentViewController
 
     class MyViewController: ScrollingContentViewController {
-    
+
         // ...
-        
+
     }
     ```
 
@@ -86,7 +86,7 @@ To configure `ScrollingContentViewController` in a storyboard:
     ```swift
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // ...
     }
     ```
@@ -105,25 +105,25 @@ To integrate `ScrollingContentViewController` programmatically:
     import ScrollingContentViewController
 
     class MyViewController: ScrollingContentViewController {
-    
+
         // ...
-        
+
     }
     ```
 
-2. In your view controller's [`viewDidLoad`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) method, assign a new view to the [`contentView`](#contentView) property. Add all of your controls to this view instead of referencing the [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property so they can scroll freely. The view controller's root view referenced by its [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property now acts as a background view behind the scrolling content view. 
+2. In your view controller's [`viewDidLoad`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) method, assign a new view to the [`contentView`](#contentView) property. Add all of your controls to this view instead of referencing the [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property so they can scroll freely. The view controller's root view referenced by its [`view`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621460-view) property now acts as a background view behind the scrolling content view.
 
     ```swift
     override func viewDidLoad() {
         super.viewDidLoad()
 
         contentView = UIView()
-        
+
         // Add all controls to contentView instead of view.
         // ...
     }
     ```
-    
+
 You may also assign [`contentView`](#contentView) to a subview of your view controller's root view, in which case only that subview will be made scrollable.
 
 ## Caveats
@@ -174,7 +174,7 @@ If you make changes to your content view that modify its size, you must call the
 For example, after updating the view's [`NSLayoutConstraint.constant`](https://developer.apple.com/documentation/uikit/nslayoutconstraint/1526928-constant) properties, you may animate the changes like this:
 
 ```swift
-UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, 
+UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0,
         options: [], animations: {
     self.scrollView.setNeedsLayout()
     self.scrollView.layoutIfNeeded()
@@ -263,7 +263,7 @@ class MyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Populate your content view here.
         // ...
 
@@ -309,7 +309,7 @@ class MyViewController: UIViewController {
 
 * [ManagerExample](Examples/ManagerExample) - Example using `ScrollingContentViewManager` and class composition instead of subclassing `ScrollingContentViewController`.
 
-* [SequenceExample](Examples/SequenceExample) - Example of a sequence of pushed scrolling view controllers with keyboards in the context of a navigation controller. 
+* [SequenceExample](Examples/SequenceExample) - Example of a sequence of pushed scrolling view controllers with keyboards in the context of a navigation controller.
 
 * [ReassignExample](Examples/ReassignExample) - Example of dynamically reassigning `contentView`.
 
@@ -319,7 +319,7 @@ The `ScrollingContentViewController` and `ScrollingContentViewManager` classes s
 
 ### contentView
 
-The scrolling content view parented to the scroll view. 
+The scrolling content view parented to the scroll view.
 
 When this property is first assigned, the view that it references is parented to [`scrollView`](#scrollView), which is then added to the view controller's view hierarchy.
 
@@ -327,7 +327,7 @@ If the content view already has a superview, the scroll view replaces it in the 
 
 If the content view has no superview, the scroll view is parented to the view controller's root view and its frame and autoresizing mask are defined to track the root view's bounds.
 
-If the [`contentView`](#contentView) property is later reassigned, the new content view replaces the old one as the subview of the scroll view, and the scroll view is left otherwise unmodified. 
+If the [`contentView`](#contentView) property is later reassigned, the new content view replaces the old one as the subview of the scroll view, and the scroll view is left otherwise unmodified.
 
 ### scrollView
 
@@ -391,7 +391,7 @@ When the content view is first assigned, if it has a superview, the scroll view 
 
 If the content view has no superview, the scroll view is parented to the view controller's root view and its frame and autoresizing mask are defined to track the root view's bounds.
 
-If the ScrollingContentViewController's `contentView` property references its root view, a new `UIView` is allocated and replaces it as the root view so that the scroll view will have an appropriate view to be parented to. 
+If the ScrollingContentViewController's `contentView` property references its root view, a new `UIView` is allocated and replaces it as the root view so that the scroll view will have an appropriate view to be parented to.
 
 The content view's superview does not necessarily have to be the view controller's root view, and does not have to match the root view's size.
 
@@ -427,7 +427,7 @@ In addition to [keyboard resize filtering](#keyboard-resize-filtering), above, S
 
 ### Navigation Controllers
 
-ScrollingContentViewController correctly handles sequences of pushed view controllers in the context of a navigation controller, in particular in the case when each view controller calls a text field's [`becomeFirstResponder`](https://developer.apple.com/documentation/uikit/uiresponder/1621113-becomefirstresponder) method in [`viewWillAppear`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621510-viewwillappear), such that the keyboard remains visible across view controller transitions. 
+ScrollingContentViewController correctly handles sequences of pushed view controllers in the context of a navigation controller, in particular in the case when each view controller calls a text field's [`becomeFirstResponder`](https://developer.apple.com/documentation/uikit/uiresponder/1621113-becomefirstresponder) method in [`viewWillAppear`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621510-viewwillappear), such that the keyboard remains visible across view controller transitions.
 
 ### Device Orientation Changes
 
