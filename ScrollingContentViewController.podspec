@@ -23,5 +23,5 @@ device rotations.
 
   s.frameworks = 'UIKit'
 
-  s.swift_version = '4.2'
+  s.swift_versions = ['4.2', '5.0']
 end

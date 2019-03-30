@@ -651,25 +651,31 @@
 				TargetAttributes = {
 					3A5702CD21E2CBB600E4CC55 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 					3A5702D621E2CBB600E4CC55 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					3A6273DE21E79757008EA567 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					3AAC04A921E3A01900D94DA5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					3AAC04D921E4514B00D94DA5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					3AE460E721EA952000B3E547 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					3AE989822206443B006254A4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -1116,7 +1122,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1142,7 +1148,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.ScrollingContentViewController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1161,7 +1167,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.ScrollingContentViewControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1180,7 +1186,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.ScrollingContentViewControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1199,7 +1205,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.ManagerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1218,7 +1224,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.ManagerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1237,7 +1243,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.StoryboardExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1256,7 +1262,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.StoryboardExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1275,7 +1281,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.CodeExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1294,7 +1300,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.CodeExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1313,7 +1319,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.SequenceExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1332,7 +1338,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.SequenceExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1351,7 +1357,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.ReassignExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1370,7 +1376,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.retroactivefiasco.ReassignExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
