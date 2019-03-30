@@ -105,12 +105,13 @@ class KeyboardTests: XCTestCase {
         scrollingContentViewManager.shouldResizeContentViewForKeyboard = true
 
         let initialContentViewSize = rootView.bounds.inset(by: rootView.safeAreaInsets).size
+        let initialBottomSafeAreaInset = rootView.safeAreaInsets.bottom - tabBarHeight
 
         presentKeyboard()
 
         // The size of the expected safe area of the view controller's root view after the
         // keyboard is presented.
-        let expectedContentViewSize = CGSize(width: initialContentViewSize.width, height: initialContentViewSize.height - (keyboardHeight - tabBarHeight))
+        let expectedContentViewSize = CGSize(width: initialContentViewSize.width, height: initialContentViewSize.height - (keyboardHeight - tabBarHeight) + initialBottomSafeAreaInset)
 
         XCTAssertEqual(contentView.frame.size, expectedContentViewSize)
     }
