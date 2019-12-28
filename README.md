@@ -248,7 +248,7 @@ class MyViewController: UIViewController {
 }
 ```
 
-The `ScrollingContentViewManager` class supports all of the same [properties](#properties) and [methods](#methods) as `ScrollingContentViewController`.
+The `ScrollingContentViewManager` class supports all of the same [properties](#view-controller-properties) and [methods](#scroll-view-properties-and-methods) as `ScrollingContentViewController`.
 
 `ScrollingContentViewManager` can also be used to create a scrolling view controller programatically:
 
