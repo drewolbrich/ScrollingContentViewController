@@ -1,5 +1,5 @@
 //
-//  KeyboardObservering.swift
+//  KeyboardObserving.swift
 //  ScrollingContentViewController
 //
 //  Created by Drew Olbrich on 1/6/19.
@@ -11,7 +11,7 @@
 import UIKit
 
 /// Delegate for `KeyboardObserver`.
-internal protocol KeyboardObservering: class {
+internal protocol KeyboardObserving: class {
 
     /// View controller over top of which the keyboard is presented.
     var hostViewController: UIViewController? { get }

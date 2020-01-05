@@ -19,7 +19,7 @@ import UIKit
 /// `ScrollingContentViewManager` may be used instead.
 ///
 /// See [https://github.com/drewolbrich/ScrollingContentViewController](https://github.com/drewolbrich/ScrollingContentViewController/blob/master/README.md) for full documentation.
-public class ScrollingContentViewManager: KeyboardObservering, ScrollViewBounceControlling, AdditionalSafeAreaInsetsControlling {
+public class ScrollingContentViewManager: KeyboardObserving, ScrollViewBounceControlling, AdditionalSafeAreaInsetsControlling {
 
     /// The view controller that hosts the scroll view.
     public private(set) weak var hostViewController: UIViewController?

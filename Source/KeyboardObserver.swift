@@ -20,7 +20,7 @@ internal class KeyboardObserver: NSObject {
 
     // See https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3
 
-    private weak var delegate: KeyboardObservering?
+    private weak var delegate: KeyboardObserving?
 
     private weak var scrollViewFilter: ScrollViewFilter?
 
@@ -31,7 +31,7 @@ internal class KeyboardObserver: NSObject {
     /// calls to `updateForCurrentKeyboardVisibility`.
     private var isAdjustingViewForKeyboardFrameEvent = false
 
-    init(scrollViewFilter: ScrollViewFilter, delegate: KeyboardObservering) {
+    init(scrollViewFilter: ScrollViewFilter, delegate: KeyboardObserving) {
         super.init()
 
         self.scrollViewFilter = scrollViewFilter

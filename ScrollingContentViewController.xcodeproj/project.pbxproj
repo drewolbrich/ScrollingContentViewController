@@ -43,7 +43,7 @@
 		3AAC049B21E2F01C00D94DA5 /* AdditionalSafeAreaInsetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049621E2F01C00D94DA5 /* AdditionalSafeAreaInsetsController.swift */; };
 		3AAC049E21E2F18E00D94DA5 /* AdditionalSafeAreaInsetsControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049D21E2F18E00D94DA5 /* AdditionalSafeAreaInsetsControlling.swift */; };
 		3AAC04A021E2F28A00D94DA5 /* ScrollViewBounceControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049F21E2F28A00D94DA5 /* ScrollViewBounceControlling.swift */; };
-		3AAC04A221E2F30700D94DA5 /* KeyboardObservering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC04A121E2F30700D94DA5 /* KeyboardObservering.swift */; };
+		3AAC04A221E2F30700D94DA5 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC04A121E2F30700D94DA5 /* KeyboardObserving.swift */; };
 		3AAC04A421E301C400D94DA5 /* ScrollViewFilterKeyboardDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC04A321E301C400D94DA5 /* ScrollViewFilterKeyboardDelegate.swift */; };
 		3AAC04AD21E3A01900D94DA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC04AC21E3A01900D94DA5 /* AppDelegate.swift */; };
 		3AAC04BC21E3A07500D94DA5 /* ScrollingContentViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5702CE21E2CBB600E4CC55 /* ScrollingContentViewController.framework */; };
@@ -228,7 +228,7 @@
 		3AAC049621E2F01C00D94DA5 /* AdditionalSafeAreaInsetsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalSafeAreaInsetsController.swift; sourceTree = "<group>"; };
 		3AAC049D21E2F18E00D94DA5 /* AdditionalSafeAreaInsetsControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalSafeAreaInsetsControlling.swift; sourceTree = "<group>"; };
 		3AAC049F21E2F28A00D94DA5 /* ScrollViewBounceControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewBounceControlling.swift; sourceTree = "<group>"; };
-		3AAC04A121E2F30700D94DA5 /* KeyboardObservering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservering.swift; sourceTree = "<group>"; };
+		3AAC04A121E2F30700D94DA5 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
 		3AAC04A321E301C400D94DA5 /* ScrollViewFilterKeyboardDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewFilterKeyboardDelegate.swift; sourceTree = "<group>"; };
 		3AAC04AA21E3A01900D94DA5 /* StoryboardExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryboardExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAC04AC21E3A01900D94DA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 				3AAC049021E2D4F100D94DA5 /* ScrollingContentViewManager.swift */,
 				3ADD380B21EBFE8D00396B7A /* ScrollingContentScrollView.swift */,
 				3AAC049421E2F01C00D94DA5 /* KeyboardObserver.swift */,
-				3AAC04A121E2F30700D94DA5 /* KeyboardObservering.swift */,
+				3AAC04A121E2F30700D94DA5 /* KeyboardObserving.swift */,
 				3AD597D221F420ED00F220A0 /* KeyboardNotificationManager.swift */,
 				3AD597D421F4221B00F220A0 /* KeyboardNotificationObserving.swift */,
 				3AF3AA3621FACCAF008AF677 /* ScrollViewFilter.swift */,
@@ -808,7 +808,7 @@
 				3AAC04A021E2F28A00D94DA5 /* ScrollViewBounceControlling.swift in Sources */,
 				3AAC049E21E2F18E00D94DA5 /* AdditionalSafeAreaInsetsControlling.swift in Sources */,
 				3AD597D521F4221B00F220A0 /* KeyboardNotificationObserving.swift in Sources */,
-				3AAC04A221E2F30700D94DA5 /* KeyboardObservering.swift in Sources */,
+				3AAC04A221E2F30700D94DA5 /* KeyboardObserving.swift in Sources */,
 				3AD597D321F420ED00F220A0 /* KeyboardNotificationManager.swift in Sources */,
 				3AF3AA3B21FCB76E008AF677 /* ScrollRectEvent.swift in Sources */,
 				3A06577C2200A552005BE8CC /* IsUnitTest.swift in Sources */,
