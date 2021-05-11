@@ -87,7 +87,7 @@ public class ScrollingContentScrollView: UIScrollView {
             // between the time when self.scrollRectToVisible and super.scrollRectToVisible are
             // called.
             // Note: This does not handle the case where the rect is smaller than the
-            // descendant view's bounds and the size of the descedant view changes.
+            // descendant view's bounds and the size of the descendant view changes.
             let boundsRect = descendantView.convert(rect, from: self)
             let rect: CGRect? = boundsRect == descendantView.bounds ? nil : boundsRect
             scrollViewFilter?.submitScrollRectEvent(ScrollRectEvent(contentArea: .descendantViewRect(rect, descendantView: descendantView), animated: animated, margin: margin ?? visibilityScrollMargin))
@@ -133,7 +133,7 @@ public class ScrollingContentScrollView: UIScrollView {
         scrollViewToVisible(view, animated: animated, margin: margin)
     }
 
-    /// Returns the descedant view with the greatest depth whose bounds contains the
+    /// Returns the descendant view with the greatest depth whose bounds contains the
     /// specified rectangle.
     ///
     /// - Parameters:
