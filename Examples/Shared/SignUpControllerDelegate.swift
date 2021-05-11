@@ -11,7 +11,7 @@
 import UIKit
 
 /// Delegate for SignUpController.
-protocol SignUpControllerDelegate: class {
+protocol SignUpControllerDelegate: AnyObject {
 
     /// Tells the delegate to scroll the scroll view so that the first responder becomes
     /// visible.

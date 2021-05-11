@@ -12,7 +12,7 @@ import Foundation
 
 /// A protocol for objects that should be notified by `KeyboardNotificationManager`
 /// when keyboard show or hide notifications are received.
-internal protocol KeyboardNotificationObserving: class {
+internal protocol KeyboardNotificationObserving: AnyObject {
 
     /// Tells the observer that a keyboard notification has been received.
     func didReceiveKeyboardNotification(_ notification: Notification)

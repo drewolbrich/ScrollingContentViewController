@@ -13,7 +13,7 @@ import UIKit
 /// A protocol that an object implements to be notified by `ScrollViewFilter` about
 /// requests to scroll a specific area of the content so that it is visible in the
 /// scroll view.
-internal protocol ScrollViewFilterScrollDelegate: class {
+internal protocol ScrollViewFilterScrollDelegate: AnyObject {
 
     /// Scrolls a specific area of the content so that it is visible in the scroll view.
     func scrollViewFilter(_ scrollViewFilter: ScrollViewFilter, adjustViewForScrollRectEvent scrollRectEvent: ScrollRectEvent)

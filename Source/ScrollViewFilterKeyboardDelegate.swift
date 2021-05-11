@@ -12,7 +12,7 @@ import UIKit
 
 /// A protocol that an object implements to be notified by `ScrollViewFilter` about
 /// keyboard frame changes.
-internal protocol ScrollViewFilterKeyboardDelegate: class {
+internal protocol ScrollViewFilterKeyboardDelegate: AnyObject {
 
     /// Adjusts the view to compensate for the portion of the keyboard that overlaps the
     /// scroll view.

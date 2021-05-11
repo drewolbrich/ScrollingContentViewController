@@ -11,7 +11,7 @@
 import UIKit
 
 /// Delegate for `ScrollViewBounceController`.
-internal protocol ScrollViewBounceControlling: class {
+internal protocol ScrollViewBounceControlling: AnyObject {
 
     /// Scroll view whose `alwaysBounceVertical` property is manipulated.
     var scrollView: ScrollingContentScrollView { get }

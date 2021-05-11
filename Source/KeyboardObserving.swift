@@ -11,7 +11,7 @@
 import UIKit
 
 /// Delegate for `KeyboardObserver`.
-internal protocol KeyboardObserving: class {
+internal protocol KeyboardObserving: AnyObject {
 
     /// View controller over top of which the keyboard is presented.
     var hostViewController: UIViewController? { get }

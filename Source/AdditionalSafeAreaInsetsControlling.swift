@@ -11,7 +11,7 @@
 import UIKit
 
 /// Delegate for `AdditionalSafeAreaInsetsController`.
-internal protocol AdditionalSafeAreaInsetsControlling: class {
+internal protocol AdditionalSafeAreaInsetsControlling: AnyObject {
 
     /// The view controller whose `additionalSafeAreaInsets` property is manipulated.
     var hostViewController: UIViewController? { get }
