@@ -8,7 +8,7 @@
 //  Licensed under the terms of the MIT License. See the file LICENSE for the full terms.
 //
 
-import Foundation
+import UIKit
 
 /// An event encapsulating a deferred call to `scrollRectToVisible(_:animated:)`.
 internal struct ScrollRectEvent {
