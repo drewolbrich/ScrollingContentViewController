@@ -207,6 +207,7 @@
 		3A5702D721E2CBB600E4CC55 /* ScrollingContentViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollingContentViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5702DC21E2CBB600E4CC55 /* StoryboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTests.swift; sourceTree = "<group>"; };
 		3A5702DE21E2CBB600E4CC55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A5B3C98265D3D2100E26100 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		3A61C80621EB9028001F76A8 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		3A61C80821EB9032001F76A8 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		3A6273DF21E79757008EA567 /* ManagerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ManagerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +339,7 @@
 			children = (
 				3AAC048921E2D3FD00D94DA5 /* LICENSE */,
 				3AAC048821E2D3FD00D94DA5 /* README.md */,
+				3A5B3C98265D3D2100E26100 /* Package.swift */,
 				3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */,
 				3ACE0D7B220B34BE0093FE5A /* .swiftlint.yml */,
 				3ACE0D7C220B34BE0093FE5A /* .travis.yml */,
