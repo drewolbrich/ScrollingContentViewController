@@ -20,11 +20,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "ScrollingContentViewController",
-            dependencies: [],
-            path: "Source"),
+            dependencies: []),
         .testTarget(
             name: "ScrollingContentViewControllerTests",
-            dependencies: ["ScrollingContentViewController"],
-            path: "Tests")
+            dependencies: ["ScrollingContentViewController"])
     ]
 )
