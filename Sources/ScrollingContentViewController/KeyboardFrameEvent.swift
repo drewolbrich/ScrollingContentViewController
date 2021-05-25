@@ -8,7 +8,7 @@
 //  Licensed under the terms of the MIT License. See the file LICENSE for the full terms.
 //
 
-import Foundation
+import UIKit
 
 /// An event encapsulating both the keyboard's frame and the duration of the
 /// animation accompanying the change in the keyboard's frame, as reported by the
