@@ -55,6 +55,8 @@ To install using Carthage, add this to your Cartfile:
 github "drewolbrich/ScrollingContentViewController"
 ```
 
+You may also add ScrollingContentViewController as a Swift Package dependency in Xcode.
+
 ## Usage
 
 Subclasses of `ScrollingContentViewController` may be configured using [storyboards](#storyboards) or in [code](#code).
