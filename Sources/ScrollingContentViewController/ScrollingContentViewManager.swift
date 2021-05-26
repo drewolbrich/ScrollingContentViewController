@@ -455,7 +455,7 @@ public class ScrollingContentViewManager: KeyboardObserving, ScrollViewBounceCon
             return
         }
 
-        // The relation greaterThanOrEqualTo is used for the minimumum width and height
+        // The relation greaterThanOrEqualTo is used for the minimum width and height
         // constraints so the content view is free to stretch to fill the scroll view's
         // safe area.
 
@@ -482,7 +482,7 @@ public class ScrollingContentViewManager: KeyboardObserving, ScrollViewBounceCon
             contentViewMinimumWidthConstraint,
             contentViewMinimumHeightConstraint,
             contentViewMinimumHeightForPresentedKeyboardConstraint
-            ]
+        ]
 
         NSLayoutConstraint.activate(constraints)
 
