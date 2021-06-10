@@ -43,7 +43,7 @@ An explanation of [how ScrollingContentViewController works internally](#how-it-
 
 ## Installation
 
-ScrollingContentViewController may be added as a Swift Package dependency in Xcode.
+To install ScrollingContentViewController using Swift Package Manager, add `https://github.com/drewolbrich/ScrollingContentViewController` to your project.
 
 To install ScrollingContentViewController using CocoaPods, add this line to your Podfile:
 
