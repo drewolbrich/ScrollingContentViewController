@@ -58,11 +58,11 @@ open class ScrollingContentViewController: UIViewController {
     ///
     /// The default value is `false`.
     @IBInspectable public var shouldResizeContentViewForKeyboard: Bool {
-        set {
-            scrollingContentViewManager.shouldResizeContentViewForKeyboard = newValue
-        }
         get {
             return scrollingContentViewManager.shouldResizeContentViewForKeyboard
+        }
+        set {
+            scrollingContentViewManager.shouldResizeContentViewForKeyboard = newValue
         }
     }
 
@@ -71,11 +71,11 @@ open class ScrollingContentViewController: UIViewController {
     ///
     /// The default value is `true`.
     @IBInspectable public var shouldAdjustAdditionalSafeAreaInsetsForKeyboard: Bool {
-        set {
-            scrollingContentViewManager.shouldAdjustAdditionalSafeAreaInsetsForKeyboard = newValue
-        }
         get {
             return scrollingContentViewManager.shouldAdjustAdditionalSafeAreaInsetsForKeyboard
+        }
+        set {
+            scrollingContentViewManager.shouldAdjustAdditionalSafeAreaInsetsForKeyboard = newValue
         }
     }
 
