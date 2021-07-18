@@ -1,5 +1,5 @@
 language: swift
 osx_image: xcode12.5
 xcode_project: ScrollingContentViewController.xcodeproj
-xcode_scheme: ScrollingContentViewControllerTests
+xcode_scheme: ScrollingContentViewController
 xcode_destination: platform=iOS Simulator,OS=14.5,name=iPhone 12 Pro
