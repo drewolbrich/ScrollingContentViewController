@@ -20,9 +20,9 @@ internal class KeyboardObserver: NSObject {
 
     // See https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3
 
-    private weak var delegate: KeyboardObserving?
-
     private weak var scrollViewFilter: ScrollViewFilter?
+
+    private weak var delegate: KeyboardObserving?
 
     /// The duration of the animation of the change to the container view's bottom inset.
     private let bottomInsetAnimationDuration: TimeInterval = 0.5
@@ -183,7 +183,8 @@ internal class KeyboardObserver: NSObject {
         guard let userInfo = notification.userInfo,
             let keyboardFrameEndUserInfoValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
             let keyboardAnimationDurationNumber = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
-            let window = UIApplication.shared.keyWindow
+            let hostViewController = delegate?.hostViewController,
+            let window = hostViewController.view.window
             else {
                 return nil
         }
@@ -276,9 +277,7 @@ extension KeyboardObserver: ScrollViewFilterKeyboardDelegate {
         guard let keyboardFrame = keyboardFrame,
             let hostViewController = delegate?.hostViewController,
             let rootView = hostViewController.view,
-            // UIApplication.shared.keyWindow is nil when unit tests are executing, and
-            // rootView is nil outside of unit tests in the case when a view is being pushed.
-            let window = isUnitTest ? rootView.window : UIApplication.shared.keyWindow else {
+            let window = rootView.window else {
             return nil
         }
 

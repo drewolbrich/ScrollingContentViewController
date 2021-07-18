@@ -126,7 +126,7 @@ public class ScrollingContentScrollView: UIScrollView {
     ///   - margin: An optional margin to apply to the first responder. If left
     ///   unspecified, `scrollToVisibleMargin` is used.
     public func scrollFirstResponderToVisible(animated: Bool, margin: CGFloat? = nil) {
-        guard let view = UIResponder.rf_current as? UIView else {
+        guard let view = self.firstResponder as? UIView else {
             return
         }
 
