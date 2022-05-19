@@ -111,7 +111,7 @@ public class ScrollingContentScrollView: UIScrollView {
     ///   - view: The view to make visible.
     ///   - animated: If `true`, the scrolling is animated.
     ///   - margin: An optional margin to apply to the view. If left unspecified,
-    ///   `scrollToVisibleMargin` is used.
+    ///   `visibilityScrollMargin` is used.
     public func scrollViewToVisible(_ view: UIView, animated: Bool, margin: CGFloat? = nil) {
         scrollViewFilter?.submitScrollRectEvent(ScrollRectEvent(contentArea: .descendantViewRect(view.bounds, descendantView: view), animated: animated, margin: margin ?? visibilityScrollMargin))
 
@@ -124,7 +124,7 @@ public class ScrollingContentScrollView: UIScrollView {
     /// - Parameters:
     ///   - animated: If `true`, the scrolling is animated.
     ///   - margin: An optional margin to apply to the first responder. If left
-    ///   unspecified, `scrollToVisibleMargin` is used.
+    ///   unspecified, `visibilityScrollMargin` is used.
     public func scrollFirstResponderToVisible(animated: Bool, margin: CGFloat? = nil) {
         guard let view = self.firstResponder as? UIView else {
             return
