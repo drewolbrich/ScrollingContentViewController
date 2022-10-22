@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ScrollingContentViewController'
-  s.version          = '1.6.2'
+  s.version          = '1.6.3'
   s.summary          = 'A Swift library that simplifies making a view controller\'s view scrollable'
 
   s.description      = <<-DESC
