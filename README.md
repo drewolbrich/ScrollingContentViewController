@@ -122,6 +122,8 @@ To integrate `ScrollingContentViewController` programmatically:
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .systemBackground
+
         contentView = UIView()
 
         // Add all controls to contentView instead of view.
