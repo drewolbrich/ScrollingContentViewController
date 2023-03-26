@@ -27,7 +27,7 @@ A common UIKit Auto Layout task involves creating a view controller with a fixed
 
 For example, consider this sign up screen, which fits iPhone Xs, but not iPhone SE with a keyboard:
 
-<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Overview-Comparison.png" width="888px">
+<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/main/Images/Overview-Comparison.png" width="888px">
 
 This case can be handled by nesting the view inside a scroll view. You could do this manually in Interface Builder, as described by Apple's [Working with Scroll Views](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithScrollViews.html) documentation, but many steps are required. If your view contains text fields, you'll have to write code to adjust the view to compensate for the presented keyboard, as described in [Managing the Keyboard](https://developer.apple.com/library/archive/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3). However, handling the keyboard robustly is [surprisingly complicated](#keyboard-resize-filtering), especially if your app presents a sequence of screens with keyboards in the context of a navigation controller, or when device orientation support is required.
 
@@ -83,7 +83,7 @@ To configure `ScrollingContentViewController` in a storyboard:
 
 2. In Interface Builder's outline view, control-click your view controller and connect its [`contentView`](#contentView) outlet to your view controller's root view or any other subview that you want to make scrollable.
 
-    <img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Usage-Storyboards.png" width="471px">
+    <img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/main/Images/Usage-Storyboards.png" width="471px">
 
 3. If your view controller defines a [`viewDidLoad`](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) method, call `super.viewDidLoad` if you aren't already doing so.
 
@@ -146,7 +146,7 @@ To determine the size of the scroll view's content size, ScrollingContentViewCon
 
 If the size of your view controller is intentionally highly constrained (e.g. consisting exclusively of constraints with [`required`](https://developer.apple.com/documentation/uikit/uilayoutpriority/1622241-required) priority and lacking [`greaterThanOrEqual`](https://developer.apple.com/documentation/uikit/nslayoutconstraint/relation/greaterthanorequal) relation constraints), you may see Auto Layout constraint errors in Interface Builder if the constraints don't match the simulated size of the view, for example, when you switch between simulated device sizes. The easiest way to resolve this issue is to reduce the priority of one of your constraints. The value 240 is a good choice because it is lower than the default content hugging priority (250) and consequently, it will help avoid the undesirable behavior where text fields and labels without height constraints stretch vertically.
 
-<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Usage-Auto-Layout-Considerations.png" width="663px">
+<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/main/Images/Usage-Auto-Layout-Considerations.png" width="663px">
 
 ### Intrinsic Content Size
 
@@ -158,7 +158,7 @@ The default `UIView` content hugging priority is [`defaultLow`](https://develope
 
 The content view is positioned within the scroll view's safe area. Consequently, the content view's background color won't extend underneath the status bar, home indicator, navigation bar, or toolbar.
 
-<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Caveats-Background-Color-Content-View.png" width="233px">
+<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/main/Images/Caveats-Background-Color-Content-View.png" width="233px">
 
 To specify a background color that extends to the edges of the screen:
 
@@ -191,7 +191,7 @@ UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSp
 
 In Interface Builder, it's possible to design a view controller that is intentionally larger than the height of the screen. To do this, change the view controller's simulated size to Freeform and adjust its height. When used with ScrollingContentViewController, the view controller's oversized content view will scroll freely, assuming its constraints require it to be larger than the screen.
 
-<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/Usage-Oversized-View-Controllers.png" width="609px">
+<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/main/Images/Usage-Oversized-View-Controllers.png" width="609px">
 
 ## Usage Without Subclassing
 
@@ -391,7 +391,7 @@ The optional `margin` parameter specifies an extra margin around the first respo
 
 ScrollingContentViewController inserts a scroll view between the content view and its superview, using Auto Layout to constrain the scroll view's content layout guide to the size of the content view. The content view's size is also constrained to be greater than or equal to the size of the scroll view's safe area, so it can utilize the full area of the screen assigned to the scroll view.
 
-<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/master/Images/How-It-Works-View-Hierarchy.png" width="496px">
+<img src="https://github.com/drewolbrich/ScrollingContentViewController/raw/main/Images/How-It-Works-View-Hierarchy.png" width="496px">
 
 When the content view is first assigned, if it has a superview, the scroll view replaces it in the view hierarchy and all of the superview's constraints that reference the content view are retargeted to the content view. The content view's width and height constraints and autoresizing mask are transferred to the scroll view.
 
