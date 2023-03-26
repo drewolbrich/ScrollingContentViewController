@@ -224,6 +224,7 @@
 		3A83273721E700A000E8D95C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpControllerDelegate.swift; sourceTree = "<group>"; };
 		3A89319229D0D127009BD5DD /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3A89319429D0D3AC009BD5DD /* Release-Steps.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Release-Steps.md"; sourceTree = "<group>"; };
 		3AAC048821E2D3FD00D94DA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3AAC048921E2D3FD00D94DA5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ScrollingContentViewController.podspec; sourceTree = "<group>"; };
@@ -388,6 +389,7 @@
 			children = (
 				3AAC048921E2D3FD00D94DA5 /* LICENSE */,
 				3AAC048821E2D3FD00D94DA5 /* README.md */,
+				3A89319429D0D3AC009BD5DD /* Release-Steps.md */,
 				3A5B3C98265D3D2100E26100 /* Package.swift */,
 				3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */,
 				3ACE0D7B220B34BE0093FE5A /* .swiftlint.yml */,
