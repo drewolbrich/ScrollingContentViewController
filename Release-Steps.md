@@ -5,7 +5,7 @@
 xcodebuild test -scheme ScrollingContentViewControllerTests -sdk iphonesimulator16.2 -destination "OS=16.2,name=iPhone 14"
 ```
 
-2. Determine the new release number, like `1.6.4`.
+2. Determine the new release number, like `1.6.5`.
 
 3. In `Sources > Info.plist`, update `Bundle version string` with the new release number.
 
@@ -23,13 +23,13 @@ pod lib lint
 
 7. Commit the updated release number and Cocopods spec file:
 ``` 
-git add -A && git commit -m "Release 1.6.4"
+git add -A && git commit -m "Release 1.6.5"
 git push
 ```
 
 8. Create a tag for the new release. For consistency, **do not** prefix tags with 'v'.
 ```
-git tag '1.6.4'
+git tag '1.6.5'
 git push --tags
 ```
 
@@ -46,6 +46,6 @@ pod trunk register drew@retroactivefiasco.com 'Drew Olbrich' --description='MacB
 
 10. Draft a new release on GitHub at https://github.com/drewolbrich/ScrollingContentViewController/releases
 
-11. For the new release, use the release number 1.6.4 as the title and prefix each item in the description with bullets, indicated by '*'.
+11. For the new release, use the release number 1.6.5 as the title and prefix each item in the description with bullets, indicated by '*'.
 
 12. Leave **Set as the latest release** checked and click **Publish**.
