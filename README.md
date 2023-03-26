@@ -1,6 +1,5 @@
 # ScrollingContentViewController
 
-[![Travis](https://img.shields.io/travis/drewolbrich/ScrollingContentViewController.svg)](https://app.travis-ci.com/github/drewolbrich/ScrollingContentViewController)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgray.svg)](http://developer.apple.com/ios)
 [![Swift 5](https://img.shields.io/badge/swift-5-red.svg?style=flat)](https://developer.apple.com/swift)
 [![License](https://img.shields.io/github/license/drewolbrich/ScrollingContentViewController.svg)](LICENSE)
