@@ -1,11 +1,11 @@
 # Release Steps
 
-1. Verify that the tests pass:
+1. Determine the new release number, like `1.6.5` and search and replace the previous version number with it in this file.
+
+2. Verify that the tests pass:
 ```
 xcodebuild test -scheme ScrollingContentViewControllerTests -sdk iphonesimulator16.2 -destination "OS=16.2,name=iPhone 14"
 ```
-
-2. Determine the new release number, like `1.6.5`.
 
 3. In `Sources > Info.plist`, update `Bundle version string` with the new release number.
 
