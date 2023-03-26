@@ -11,24 +11,29 @@ xcodebuild test -scheme ScrollingContentViewControllerTests -sdk iphonesimulator
 
 4. In `ScrollingContentViewController.podspec`, update `s.version` with the new release number.
 
-5. Verify that the Cocoapods spec file is valid:
+5. Verify that the Swift package file is valid:
+```
+swift package describe
+```
+
+6. Verify that the Cocoapods spec file is valid:
 ```
 pod lib lint
 ```
 
-6. Commit the updated release number and Cocopods spec file:
+7. Commit the updated release number and Cocopods spec file:
 ``` 
 git add -A && git commit -m "Release 1.6.4"
 git push
 ```
 
-7. Create a tag for the new release. For consistency, **do not** prefix tags with 'v'.
+8. Create a tag for the new release. For consistency, **do not** prefix tags with 'v'.
 ```
 git tag '1.6.4'
 git push --tags
 ```
 
-8. Submit the new release to the Cocoapods specs repo:
+9. Submit the new release to the Cocoapods specs repo:
 ```
 pod trunk push ScrollingContentViewController.podspec
 ```
@@ -39,8 +44,8 @@ using the email address in `ScrollingContentViewController.podspec` to register 
 pod trunk register drew@retroactivefiasco.com 'Drew Olbrich' --description='MacBook Pro' 
 ```
 
-9. Draft a new release on GitHub at https://github.com/drewolbrich/ScrollingContentViewController/releases
+10. Draft a new release on GitHub at https://github.com/drewolbrich/ScrollingContentViewController/releases
 
-10. For the new release, use the release number 1.6.4 as the title and prefix each item in the description with bullets, indicated by '*'.
+11. For the new release, use the release number 1.6.4 as the title and prefix each item in the description with bullets, indicated by '*'.
 
-11. Leave **Set as the latest release** checked and click **Publish**.
+12. Leave **Set as the latest release** checked and click **Publish**.
