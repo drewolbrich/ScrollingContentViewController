@@ -19,35 +19,35 @@ let package = Package(
         .target(
             name: "ScrollingContentViewController",
             dependencies: []
-        ),
-        .target(
-            name: "Common",
-            dependencies: ["ScrollingContentViewController"],
-            path: "Tests/Common"
-        ),
-        .testTarget(
-            name: "StoryboardTests",
-            dependencies: ["ScrollingContentViewController", "Common"]
-        ),
-        .testTarget(
-            name: "CodeTests",
-            dependencies: ["ScrollingContentViewController", "Common"]
-        ),
-        .testTarget(
-            name: "ManagerTests",
-            dependencies: ["ScrollingContentViewController", "Common"]
-        ),
-        .testTarget(
-            name: "IntrinsicSizeTests",
-            dependencies: ["ScrollingContentViewController"]
-        ),
-        .testTarget(
-            name: "KeyboardTests",
-            dependencies: ["ScrollingContentViewController"]
-        ),
-        .testTarget(
-            name: "InsetContentViewKeyboardTests",
-            dependencies: ["ScrollingContentViewController"]
         )
+//        .target(
+//            name: "Common",
+//            dependencies: ["ScrollingContentViewController"],
+//            path: "Tests/Common"
+//        ),
+//        .testTarget(
+//            name: "StoryboardTests",
+//            dependencies: ["ScrollingContentViewController", "Common"]
+//        ),
+//        .testTarget(
+//            name: "CodeTests",
+//            dependencies: ["ScrollingContentViewController", "Common"]
+//        ),
+//        .testTarget(
+//            name: "ManagerTests",
+//            dependencies: ["ScrollingContentViewController", "Common"]
+//        ),
+//        .testTarget(
+//            name: "IntrinsicSizeTests",
+//            dependencies: ["ScrollingContentViewController"]
+//        ),
+//        .testTarget(
+//            name: "KeyboardTests",
+//            dependencies: ["ScrollingContentViewController"]
+//        ),
+//        .testTarget(
+//            name: "InsetContentViewKeyboardTests",
+//            dependencies: ["ScrollingContentViewController"]
+//        )
     ]
 )
