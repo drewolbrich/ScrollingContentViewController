@@ -100,7 +100,6 @@ class SignUpViewController: ScrollingContentViewController {
         textField.isSecureTextEntry = isSecureTextEntry
     }
 
-    // swiftlint:disable:next function_body_length
     private func addConstraints() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
