@@ -252,7 +252,6 @@
 		3AC88F4F21E5B7F500EED460 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AC88F5021E5B7F600EED460 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ACE0D7B220B34BE0093FE5A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		3ACE0D7C220B34BE0093FE5A /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		3AD597D221F420ED00F220A0 /* KeyboardNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationManager.swift; sourceTree = "<group>"; };
 		3AD597D421F4221B00F220A0 /* KeyboardNotificationObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationObserving.swift; sourceTree = "<group>"; };
 		3ADD380921EBFC6200396B7A /* KeyboardFrameEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardFrameEvent.swift; sourceTree = "<group>"; };
@@ -393,7 +392,6 @@
 				3A5B3C98265D3D2100E26100 /* Package.swift */,
 				3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */,
 				3ACE0D7B220B34BE0093FE5A /* .swiftlint.yml */,
-				3ACE0D7C220B34BE0093FE5A /* .travis.yml */,
 				3A5702D021E2CBB600E4CC55 /* Sources */,
 				3AAC04A521E39FBF00D94DA5 /* Examples */,
 				3A5702DB21E2CBB600E4CC55 /* Tests */,
