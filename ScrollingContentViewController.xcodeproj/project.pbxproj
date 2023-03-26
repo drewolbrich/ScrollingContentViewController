@@ -10,7 +10,6 @@
 		3A06577C2200A552005BE8CC /* IsUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06577B2200A552005BE8CC /* IsUnitTest.swift */; };
 		3A1A174626A4839F006EE907 /* UIView+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A174526A4839F006EE907 /* UIView+FirstResponder.swift */; };
 		3A1A176026A485BB006EE907 /* CodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A174B26A48489006EE907 /* CodeTests.swift */; };
-		3A1A176126A485C3006EE907 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A175626A48489006EE907 /* ContentView.swift */; };
 		3A1A176226A485C3006EE907 /* StoryboardTests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1A175426A48489006EE907 /* StoryboardTests.storyboard */; };
 		3A1A176326A485C3006EE907 /* IntrinsicSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A174926A48489006EE907 /* IntrinsicSizeTests.swift */; };
 		3A1A176426A485C3006EE907 /* IntrinsicSizeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A174E26A48489006EE907 /* IntrinsicSizeContentView.swift */; };
@@ -41,6 +40,7 @@
 		3A83273921E700A000E8D95C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273721E700A000E8D95C /* SignUpController.swift */; };
 		3A83273B21E703F600E8D95C /* SignUpControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */; };
 		3A83273C21E703F600E8D95C /* SignUpControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */; };
+		3A89319329D0D127009BD5DD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A89319229D0D127009BD5DD /* ContentView.swift */; };
 		3AAC048F21E2D4C500D94DA5 /* ScrollingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC048E21E2D4C500D94DA5 /* ScrollingContentViewController.swift */; };
 		3AAC049121E2D4F100D94DA5 /* ScrollingContentViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049021E2D4F100D94DA5 /* ScrollingContentViewManager.swift */; };
 		3AAC049921E2F01C00D94DA5 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAC049421E2F01C00D94DA5 /* KeyboardObserver.swift */; };
@@ -209,7 +209,6 @@
 		3A1A175226A48489006EE907 /* ManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerTests.swift; sourceTree = "<group>"; };
 		3A1A175426A48489006EE907 /* StoryboardTests.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardTests.storyboard; sourceTree = "<group>"; };
 		3A1A175526A48489006EE907 /* StoryboardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardTests.swift; sourceTree = "<group>"; };
-		3A1A175626A48489006EE907 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3A1A176A26A48701006EE907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A5702CE21E2CBB600E4CC55 /* ScrollingContentViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScrollingContentViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5702D121E2CBB600E4CC55 /* ScrollingContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollingContentViewController.h; sourceTree = "<group>"; };
@@ -224,6 +223,7 @@
 		3A7014BB21EBD723002C6740 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A83273721E700A000E8D95C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		3A83273A21E703F600E8D95C /* SignUpControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpControllerDelegate.swift; sourceTree = "<group>"; };
+		3A89319229D0D127009BD5DD /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3AAC048821E2D3FD00D94DA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3AAC048921E2D3FD00D94DA5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3AAC048A21E2D3FD00D94DA5 /* ScrollingContentViewController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ScrollingContentViewController.podspec; sourceTree = "<group>"; };
@@ -337,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1A174926A48489006EE907 /* IntrinsicSizeTests.swift */,
+				3A1A174E26A48489006EE907 /* IntrinsicSizeContentView.swift */,
 			);
 			path = IntrinsicSizeTests;
 			sourceTree = "<group>";
@@ -353,7 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				3A1A174D26A48489006EE907 /* InsetContentViewKeyboardTests.swift */,
-				3A1A174E26A48489006EE907 /* IntrinsicSizeContentView.swift */,
 			);
 			path = InsetContentViewKeyboardTests;
 			sourceTree = "<group>";
@@ -379,7 +379,6 @@
 			children = (
 				3A1A175426A48489006EE907 /* StoryboardTests.storyboard */,
 				3A1A175526A48489006EE907 /* StoryboardTests.swift */,
-				3A1A175626A48489006EE907 /* ContentView.swift */,
 			);
 			path = StoryboardTests;
 			sourceTree = "<group>";
@@ -426,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1A176A26A48701006EE907 /* Info.plist */,
+				3A89319129D0D127009BD5DD /* Common */,
 				3A1A174A26A48489006EE907 /* CodeTests */,
 				3A1A174C26A48489006EE907 /* InsetContentViewKeyboardTests */,
 				3A1A174826A48489006EE907 /* IntrinsicSizeTests */,
@@ -470,6 +470,14 @@
 				3A6273ED21E79758008EA567 /* Info.plist */,
 			);
 			path = ManagerExample;
+			sourceTree = "<group>";
+		};
+		3A89319129D0D127009BD5DD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A89319229D0D127009BD5DD /* ContentView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		3AAC04A521E39FBF00D94DA5 /* Examples */ = {
@@ -879,10 +887,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A1A176726A485C3006EE907 /* ManagerTests.swift in Sources */,
-				3A1A176126A485C3006EE907 /* ContentView.swift in Sources */,
 				3A1A176526A485C3006EE907 /* StoryboardTests.swift in Sources */,
 				3A1A176826A485C3006EE907 /* InsetContentViewKeyboardTests.swift in Sources */,
 				3A1A176626A485C3006EE907 /* KeyboardTests.swift in Sources */,
+				3A89319329D0D127009BD5DD /* ContentView.swift in Sources */,
 				3A1A176426A485C3006EE907 /* IntrinsicSizeContentView.swift in Sources */,
 				3A1A176026A485BB006EE907 /* CodeTests.swift in Sources */,
 				3A1A176326A485C3006EE907 /* IntrinsicSizeTests.swift in Sources */,

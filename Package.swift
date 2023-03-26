@@ -20,17 +20,22 @@ let package = Package(
             name: "ScrollingContentViewController",
             dependencies: []
         ),
+        .target(
+            name: "Common",
+            dependencies: ["ScrollingContentViewController"],
+            path: "Tests/Common"
+        ),
         .testTarget(
             name: "StoryboardTests",
-            dependencies: ["ScrollingContentViewController"]
+            dependencies: ["ScrollingContentViewController", "Common"]
         ),
         .testTarget(
             name: "CodeTests",
-            dependencies: ["ScrollingContentViewController"]
+            dependencies: ["ScrollingContentViewController", "Common"]
         ),
         .testTarget(
             name: "ManagerTests",
-            dependencies: ["ScrollingContentViewController"]
+            dependencies: ["ScrollingContentViewController", "Common"]
         ),
         .testTarget(
             name: "IntrinsicSizeTests",
