@@ -10,15 +10,15 @@
 
 import UIKit
 
-/// A view assigned `contentView` property in StoryboardTests.storyboard.
-class ContentView: UIView {
+/// A content view used by `StoryboardTests`, `CodeTests`, and `ManagerTests`.
+public class ContentView: UIView {
 
     /// A constraint that determines the view's width.
-    var widthConstraint: NSLayoutConstraint!
+    public var widthConstraint: NSLayoutConstraint!
 
     /// A constraint that determine the view's height. This constraint's constant is
     /// manipulated externally to test the behavior of views of varying heights.
-    var heightConstraint: NSLayoutConstraint!
+    public var heightConstraint: NSLayoutConstraint!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
