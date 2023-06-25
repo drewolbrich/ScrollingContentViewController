@@ -26,10 +26,17 @@ internal class ScrollViewBounceController {
 
     var bottomInset: CGFloat = 0 {
         didSet {
-            guard let scrollView = delegate?.scrollView,
-                scrollView.keyboardDismissMode != .none else {
+            guard let scrollView = delegate?.scrollView else {
                 return
             }
+
+#if !os(xrOS)
+            guard scrollView.keyboardDismissMode != .none else {
+                return
+            }
+#else
+            // keyboardDismissMode is unavailable on visionOS.
+#endif
 
             if bottomInset != 0 && oldValue == 0 {
                 // The keyboard was presented.

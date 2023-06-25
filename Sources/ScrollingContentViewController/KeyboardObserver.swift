@@ -95,9 +95,17 @@ internal class KeyboardObserver: NSObject {
         // handled. This avoids unwanted animation.
         scrollViewFilter.submitKeyboardFrameEvent(keyboardFrameEvent)
 
+        let keyboardDismissModeIsDefined: Bool
+#if !os(xrOS)
+        keyboardDismissModeIsDefined = scrollView.keyboardDismissMode != .none
+#else
+        // keyboardDismissMode is unavailable on visionOS.
+        keyboardDismissModeIsDefined = false
+#endif
+
         if notification.name == UIResponder.keyboardWillHideNotification
             && delegate?.shouldResizeContentViewForKeyboard == true
-            && scrollView.keyboardDismissMode != .none
+            && keyboardDismissModeIsDefined
             && scrollView.isTracking {
             // If the keyboard is being dismissed by way of a drag gesture and the content view
             // is resizable, respond to the change in the keyboard's frame immediately, without
