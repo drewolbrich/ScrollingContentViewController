@@ -30,7 +30,7 @@ internal class ScrollViewBounceController {
                 return
             }
 
-#if !os(xrOS)
+#if !os(visionOS)
             guard scrollView.keyboardDismissMode != .none else {
                 return
             }

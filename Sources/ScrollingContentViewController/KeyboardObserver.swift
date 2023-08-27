@@ -96,7 +96,7 @@ internal class KeyboardObserver: NSObject {
         scrollViewFilter.submitKeyboardFrameEvent(keyboardFrameEvent)
 
         let keyboardDismissModeIsDefined: Bool
-#if !os(xrOS)
+#if !os(visionOS)
         keyboardDismissModeIsDefined = scrollView.keyboardDismissMode != .none
 #else
         // keyboardDismissMode is unavailable on visionOS.
