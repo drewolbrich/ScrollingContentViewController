@@ -1,6 +1,6 @@
 # Release Steps
 
-1. Determine the new release number, like `1.6.7` and search and replace the previous version number with it in this file.
+1. Determine the new release number, like `1.7.0` and search and replace the previous version number with it in this file.
 
 2. Verify that the tests pass:
 ```
@@ -23,13 +23,13 @@ pod lib lint
 
 7. Commit the updated release number and Cocopods spec file:
 ``` 
-git add -A && git commit -m "Release 1.6.7"
+git add -A && git commit -m "Release 1.7.0"
 git push
 ```
 
 8. Create a tag for the new release. For consistency, **do not** prefix tags with 'v'.
 ```
-git tag '1.6.7'
+git tag '1.7.0'
 git push --tags
 ```
 
@@ -46,6 +46,6 @@ pod trunk register drew@retroactivefiasco.com 'Drew Olbrich' --description='MacB
 
 10. Draft a new release on GitHub at https://github.com/drewolbrich/ScrollingContentViewController/releases
 
-11. For the new release, use the release number 1.6.7 as the title and prefix each item in the description with bullets, indicated by '*'.
+11. For the new release, use the release number 1.7.0 as the title and prefix each item in the description with bullets, indicated by '*'.
 
 12. Leave **Set as the latest release** checked and click **Publish**.
